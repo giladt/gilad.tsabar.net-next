@@ -95,11 +95,7 @@ const ProjectsPage: FC<projectsProps> = ({}) => {
   return (
     <>
       <PageSectionTitle align="left">Projects</PageSectionTitle>
-      <PageSection
-        id="projects"
-        label="projects"
-        className="bg-stone-200 text-black"
-      >
+      <PageSection label="projects" className="bg-stone-200 text-black">
         <PageSectionTiles>
           {my_projects.map((project, idx) => (
             <Project key={idx} {...project}>

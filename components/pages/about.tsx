@@ -134,11 +134,7 @@ const AboutPage: FC<aboutProps> = ({}) => {
   ];
 
   return (
-    <PageSection
-      id="about-me"
-      label="about me"
-      className="bg-stone-200 text-black"
-    >
+    <PageSection label="about me" className="bg-stone-200 text-black">
       <PageSectionTitle align="left">About Me</PageSectionTitle>
       <PageSectionParagraph>
         <div className="flex flex-wrap justify-center gap-4 p-4 rounded-lg bg-stone-300 my-2">
@@ -174,7 +170,7 @@ const AboutPage: FC<aboutProps> = ({}) => {
             ))}
           </ul>
         </div>
-        <PageSectionTitle id="experience">Work Experience</PageSectionTitle>
+        <PageSectionTitle>Work Experience</PageSectionTitle>
         <VerticalTimeline experiences={experiences} />
       </PageSectionParagraph>
     </PageSection>

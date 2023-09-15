@@ -3,14 +3,12 @@ import { motion } from "framer-motion";
 import { v4 as uuidv4 } from "uuid";
 
 interface pageSectionProps {
-  id: string;
   label: string;
   className?: string;
   children: ReactNode;
 }
 
 export const PageSection: FC<pageSectionProps> = ({
-  id,
   label,
   className = "",
   children,
@@ -56,14 +54,12 @@ export const PageSectionTiles: FC<pageSectionTilesProps> = ({ children }) => (
 );
 
 interface pageSectionTitleProps {
-  id?: string;
   small?: boolean;
   align?: "left" | "center" | "right";
   children: ReactNode;
 }
 
 export const PageSectionTitle: FC<pageSectionTitleProps> = ({
-  id = uuidv4(),
   small = false,
   align = "center",
   children,
@@ -71,7 +67,6 @@ export const PageSectionTitle: FC<pageSectionTitleProps> = ({
   const textAlignment = `text-${align}`;
   return (
     <h2
-      id={id}
       className={`${small ? "text-lg" : "text-2xl"}
         mb-8 font-bold ${textAlignment} text-slate-600
         ${
