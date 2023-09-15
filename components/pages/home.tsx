@@ -101,7 +101,7 @@ const HomePage: FC<homeProps> = ({}: homeProps) => {
                 drop-shadow-[0_0_3rem_rgba(255,255,255,0.25),0_0_1rem_rgba(255,255,255,0.5)] 
               "
         >
-          a{" "}
+          I am a{" "}
           <strong className="text-7xl max-sm:text-5xl uppercase text-red-300">
             Fullstack Web Developer
           </strong>{" "}
