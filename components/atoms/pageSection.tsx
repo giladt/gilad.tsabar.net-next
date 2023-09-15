@@ -73,15 +73,15 @@ export const PageSectionTitle: FC<pageSectionTitleProps> = ({
     <h2
       id={id}
       className={`${small ? "text-lg" : "text-2xl"}
-        mb-8 font-bold w-full ${textAlignment} text-slate-600
+        mb-8 font-bold ${textAlignment} text-slate-600
         ${
           align === "left"
-            ? `hidden lg:visible text-8xl opacity-20
-                left-0 p-0 mx-0 my-auto fixed top-0
+            ? `hidden lg:visible text-8xl opacity-30
+                left-0 p-0 mx-0 my-auto fixed top-0 capitalize
                 h-[100vh] w-[11rem] font-bold [writing-mode:vertical-rl]
                 rotate-180 align-middle justify-center items-center
-                lg:flex`
-            : "text-2xl"
+                lg:flex  drop-shadow-[-3px_-3px_6px_rgba(0,_0,_0,_0.75)] `
+            : "text-2xl w-full"
         }
 
       `}
