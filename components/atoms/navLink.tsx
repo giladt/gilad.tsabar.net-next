@@ -15,15 +15,16 @@ const NavLink = ({ href, icon, children, active, setIsOpen }: navLinkProps) => {
     <Link
       href={href}
       onClick={() => setIsOpen(false)}
-      className={`
+      className="
         flex flex-col justify-center items-center
+        gap-2 whitespace-nowrap
         w-full h-full text-[#8c0009] drop-shadow-sm 
         uppercase hover:text-white
-      `}
+      "
       style={active ? { color: "white" } : {}}
     >
       <FontAwesomeIcon
-        className="block text-[1.5rem] mb-2 text-current"
+        className="block text-[1.5rem] text-current"
         icon={icon}
       />
       {children}
