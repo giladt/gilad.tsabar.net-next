@@ -9,17 +9,16 @@ interface SubscribeRequest extends NextApiRequest {
   }
 }
 
-export default function handler(request: SubscribeRequest, response: NextApiResponse) {
+export default async function handler(request: SubscribeRequest, response: NextApiResponse) {
   if (request.method !== "POST") {
     response.status(405).send("Method not allowed");
     return;
   }
   try {
     const body = request.body;
-    console.log(body);
     if (body.name && body.email && body.message) {
 
-      const isSent = transporter.sendMail({
+      const isSent = await transporter.sendMail({
         ...mailOptions,
         replyTo: body.email,
         subject: "New Message from gilad.tsabar.net",
@@ -35,8 +34,7 @@ export default function handler(request: SubscribeRequest, response: NextApiResp
           </div>
         `
       })
-      console.log({ isSent, body });
-      return response.status(200).json(body);
+      return await response.status(200).json(body);
     } else {
       return response.status(400).json({ error: "Bad request." });
     }
