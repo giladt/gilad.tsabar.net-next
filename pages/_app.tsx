@@ -1,6 +1,7 @@
 import React from "react";
 import type { AppProps } from "next/app";
 import { usePathname } from "next/navigation";
+import { Analytics } from "@vercel/analytics/react";
 import { v5 as uuidv5 } from "uuid";
 
 import { AnimatePresence, motion } from "framer-motion";
@@ -35,6 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
           ></motion.div>
         </motion.div>
       </AnimatePresence>
+      <Analytics />
     </WindowContextProvider>
   );
 }
