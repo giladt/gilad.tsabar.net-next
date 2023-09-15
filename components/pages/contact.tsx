@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import { useState, type FC, type FormEvent } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -14,12 +14,31 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 interface ContactMePageProps {}
 
 const ContactMePage: FC<ContactMePageProps> = ({}) => {
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [response, setResponse] = useState<Response>();
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ name, email, message }),
+    };
+
+    setIsLoading(true);
+    const res = await fetch("/api/v1/mail/send", options);
+    setIsLoading(false);
+    setResponse(res);
+  };
+
   return (
-    <PageSection
-      id="contact"
-      label="contact"
-      className="bg-stone-200 text-black"
-    >
+    <PageSection label="contact" className="bg-stone-200 text-black">
       <PageSectionParagraph>
         <PageSectionTitle align="left">Contact Me</PageSectionTitle>
         <PageSectionTitle>Where To Find Me</PageSectionTitle>
@@ -76,51 +95,103 @@ const ContactMePage: FC<ContactMePageProps> = ({}) => {
           ...alternatively, you can also send me a message directly from this
           page:
         </div>
-        <form
-          action=""
-          className="flex flex-col gap-4
-          w-full py-2 
-          rounded-lg
-        "
-        >
-          <input
-            type="text"
-            title="Name"
-            placeholder="Name"
-            required
-            className="bg-black/10 
-            border border-slate-900 rounded-lg 
-            text-slate-900 placeholder:text-slate-700
-            hover:bg-slate-200 h-10 p-2 shadow-lg"
-          />
-          <input
-            type="email"
-            title="Email"
-            placeholder="Email"
-            required
-            className="bg-black/10 
-            border border-slate-900 rounded-lg 
-            text-slate-900 placeholder:text-slate-700
-            hover:bg-slate-200 h-10 p-2 shadow-lg"
-          />
-          <textarea
-            rows={10}
-            placeholder="Type here your message"
-            title="Message"
-            required
-            className="bg-black/10 
-            border border-slate-900 rounded-lg 
-            text-slate-900 placeholder:text-slate-700
-            hover:bg-slate-200 p-2 shadow-lg"
-          />
-          <button
-            type="submit"
-            className="bg-slate-900 rounded-lg text-white 
-            hover:bg-slate-500 h-10"
+        {!response && (
+          <motion.form
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -1000 }}
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-4
+            w-full py-2 
+            rounded-lg
+          "
           >
-            Send
-          </button>
-        </form>
+            <input
+              type="text"
+              title="Name"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              className="bg-black/10 
+              border border-slate-900 rounded-lg 
+              text-slate-900 placeholder:text-slate-700
+              hover:bg-slate-200 h-10 p-2 shadow-lg"
+            />
+            <input
+              type="email"
+              title="Email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="bg-black/10 
+              border border-slate-900 rounded-lg 
+              text-slate-900 placeholder:text-slate-700
+              hover:bg-slate-200 h-10 p-2 shadow-lg"
+            />
+            <textarea
+              rows={10}
+              placeholder="Type here your message"
+              title="Message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              required
+              className="bg-black/10 
+              border border-slate-900 rounded-lg 
+              text-slate-900 placeholder:text-slate-700
+              hover:bg-slate-200 p-2 shadow-lg"
+            />
+            <button
+              type="submit"
+              className="bg-slate-900 rounded-lg text-white 
+              hover:bg-slate-500 h-10"
+            >
+              Send
+            </button>
+          </motion.form>
+        )}
+        {!response && isLoading && (
+          <motion.div
+            initial={{ opacity: 0, x: 1000 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -1000 }}
+            className="w-full h-80 flex justify-center items-center rounded-lg bg-stone-400"
+          >
+            Sending Message...
+          </motion.div>
+        )}
+        {response && response.status === 200 && (
+          <motion.div
+            initial={{ opacity: 0, x: 1000 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -1000 }}
+            className="w-full h-80 flex flex-col justify-center gap-4 items-center rounded-lg shadow-lg shadow-inner bg-black/5"
+          >
+            Message sent successfully
+            <button
+              className="flex w-2/3 p-4 m-4 justify-center items-center rounded-lg bg-white/50 hover:bg-white/70 shadow-lg hover:shadow-sm"
+              onClick={() => {
+                setName("");
+                setEmail("");
+                setMessage("");
+                setResponse(undefined);
+              }}
+            >
+              Close
+            </button>
+          </motion.div>
+        )}
+        {response && response.status !== 200 && (
+          <motion.div
+            initial={{ opacity: 0, x: 1000 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -1000 }}
+            className="w-full h-80 flex justify-center gap-4 items-center rounded-lg bg-stone-400"
+          >
+            Error has ocurred. Try again
+          </motion.div>
+        )}
       </PageSectionParagraph>
     </PageSection>
   );
