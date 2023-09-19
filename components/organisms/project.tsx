@@ -11,7 +11,8 @@ interface ProjectProps {
   liveUrl: string;
   repoUrl: string;
   image: string;
-  stack: { text: string; src: string; size: number }[];
+  priority?: boolean;
+  stack: { text: string; src: string }[];
   children: ReactNode;
 }
 
@@ -32,6 +33,7 @@ const Project: FC<ProjectProps> = ({ children, ...args }) => {
           width={500}
           height={500}
           alt={args.title}
+          priority={args.priority || false}
           className={`w-full flex rounded-lg shadow-lg`}
         />
       </div>

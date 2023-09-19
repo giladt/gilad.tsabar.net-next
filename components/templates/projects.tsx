@@ -118,8 +118,8 @@ const ProjectsPage: FC<{}> = () => {
       >
         <PageSection.Title align="left">Projects</PageSection.Title>
         <PageSection.Tiles>
-          {my_projects.map((project) => (
-            <Project key={uuidv4()} {...project}>
+          {projects.map((project, index) => (
+            <Project key={uuidv4()} priority={index <= 4} {...project}>
               {project.description}
             </Project>
           ))}
