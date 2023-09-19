@@ -2,11 +2,7 @@ import type { FC } from "react";
 import Image from "next/image";
 
 import Pill from "@/components/atoms/pill";
-import {
-  PageSection,
-  PageSectionParagraph,
-  PageSectionTitle,
-} from "@/components/atoms/pageSection";
+import { PageSection } from "@/components/atoms/pageSection";
 import VerticalTimeline, {
   type Experience,
 } from "@/components/organisms/verticalTimeline";
@@ -134,9 +130,9 @@ const AboutPage: FC<aboutProps> = ({}) => {
   ];
 
   return (
-    <PageSection label="about me" className="bg-stone-200 text-black">
-      <PageSectionTitle align="left">About Me</PageSectionTitle>
-      <PageSectionParagraph>
+    <PageSection.Container label="about me" className="bg-stone-200 text-black">
+      <PageSection.Title align="left">About Me</PageSection.Title>
+      <PageSection.Paragraph>
         <div className="flex flex-wrap justify-center gap-4 p-4 rounded-lg bg-stone-300 my-2">
           <div className="md:max-w-[calc(100%-250px-1rem)] min-w-[250px] flex flex-col gap-2">
             <h2 className="text-xl font-bold">Who am I</h2>
@@ -170,10 +166,10 @@ const AboutPage: FC<aboutProps> = ({}) => {
             ))}
           </ul>
         </div>
-        <PageSectionTitle>Work Experience</PageSectionTitle>
+        <PageSection.Title>Work Experience</PageSection.Title>
         <VerticalTimeline experiences={experiences} />
-      </PageSectionParagraph>
-    </PageSection>
+      </PageSection.Paragraph>
+    </PageSection.Container>
   );
 };
 export default AboutPage;

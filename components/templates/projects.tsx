@@ -1,12 +1,17 @@
 import type { FC } from "react";
 import Project from "@/components/organisms/project";
-import {
-  PageSection,
-  PageSectionTitle,
-  PageSectionTiles,
-} from "@/components/atoms/pageSection";
+import { PageSection } from "@/components/atoms/pageSection";
+import { v4 as uuidv4 } from "uuid";
 
-interface projectsProps {}
+interface projectProps {
+  title: string;
+  description: string;
+  release: string;
+  liveUrl: string;
+  repoUrl: string;
+  image: string;
+  stack: { text: string; src: string; size: number }[];
+}
 
 const images = {
   js: { text: "Javascript", src: "/icons/javascript-50.png", size: 30 },
@@ -41,8 +46,8 @@ const images = {
   cypress: { text: "CyPress", src: "/icons/cypress.jpg", size: 30 },
 };
 
-const ProjectsPage: FC<projectsProps> = ({}) => {
-  const my_projects = [
+const ProjectsPage: FC<{}> = () => {
+  const my_projects: projectProps[] = [
     {
       title: "Le-Petit-Moabit",
       release: "06/2023",
@@ -50,6 +55,7 @@ const ProjectsPage: FC<projectsProps> = ({}) => {
       repoUrl: "https://github.com/giladt/tsabar.next",
       description:
         "Side Project: Booking-Inquiry app for family-owned properties.",
+      image: "/projects/le-petit-moabit.png",
       stack: [
         images.next,
         images.react,
@@ -65,6 +71,7 @@ const ProjectsPage: FC<projectsProps> = ({}) => {
       repoUrl: "https://github.com/PrimeDAO/prime-deals-dapp",
       description:
         "A part of PrimeDAO’s open-source platform: Decentralized collaboration between DAO’s.",
+      image: "/projects/prime-deals.png",
       stack: [
         images.aurelia,
         images.ts,
@@ -80,7 +87,17 @@ const ProjectsPage: FC<projectsProps> = ({}) => {
       repoUrl: "https://github.com/PrimeDAO/prime-launch-dapp",
       description:
         "A part of PrimeDAO’s open-source DeFi platform: Decentralized Seeds and launches of DAO’s.",
+      image: "/projects/prime-launch.png",
       stack: [images.aurelia, images.ts, images.ether],
+    },
+    {
+      title: "Tag Supplies",
+      release: "05/2021",
+      liveUrl: "https://tag-supplies.vercel.app/",
+      repoUrl: "https://github.com/giladt/tag-supplies",
+      description: "Based on the classic game from the '80s.",
+      image: "/projects/tag-supplies.png",
+      stack: [images.es6, images.html, images.css],
     },
     {
       title: "Tetris Game",
@@ -88,22 +105,26 @@ const ProjectsPage: FC<projectsProps> = ({}) => {
       liveUrl: "https://giladt.github.io/TetrisGame/",
       repoUrl: "https://github.com/giladt/TetrisGame",
       description: "Based on the classic game from the '80s.",
+      image: "/projects/tetris-game.png",
       stack: [images.es6, images.html, images.css],
     },
   ];
 
   return (
     <>
-      <PageSectionTitle align="left">Projects</PageSectionTitle>
-      <PageSection label="projects" className="bg-stone-200 text-black">
-        <PageSectionTiles>
-          {my_projects.map((project, idx) => (
-            <Project key={idx} {...project}>
+      <PageSection.Container
+        label="projects"
+        className="bg-stone-200 text-black"
+      >
+        <PageSection.Title align="left">Projects</PageSection.Title>
+        <PageSection.Tiles>
+          {my_projects.map((project) => (
+            <Project key={uuidv4()} {...project}>
               {project.description}
             </Project>
           ))}
-        </PageSectionTiles>
-      </PageSection>
+        </PageSection.Tiles>
+      </PageSection.Container>
     </>
   );
 };

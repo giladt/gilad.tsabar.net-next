@@ -2,11 +2,7 @@ import { useState, type FC, type FormEvent } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-import {
-  PageSection,
-  PageSectionParagraph,
-  PageSectionTitle,
-} from "@/components/atoms/pageSection";
+import { PageSection } from "@/components/atoms/pageSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -38,10 +34,10 @@ const ContactMePage: FC<ContactMePageProps> = ({}) => {
   };
 
   return (
-    <PageSection label="contact" className="bg-stone-200 text-black">
-      <PageSectionParagraph>
-        <PageSectionTitle align="left">Contact Me</PageSectionTitle>
-        <PageSectionTitle>Where To Find Me</PageSectionTitle>
+    <PageSection.Container label="contact" className="bg-stone-200 text-black">
+      <PageSection.Paragraph>
+        <PageSection.Title align="left">Contact Me</PageSection.Title>
+        <PageSection.Title>Where To Find Me</PageSection.Title>
         <div className="flex justify-center">
           Do you have an interesting project I can help with?
           <br />
@@ -192,8 +188,8 @@ const ContactMePage: FC<ContactMePageProps> = ({}) => {
             Error has ocurred. Try again
           </motion.div>
         )}
-      </PageSectionParagraph>
-    </PageSection>
+      </PageSection.Paragraph>
+    </PageSection.Container>
   );
 };
 
