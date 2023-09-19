@@ -103,7 +103,7 @@ const HomePage: FC<homeProps> = ({}: homeProps) => {
         >
           I am a{" "}
           <strong className="text-7xl max-sm:text-5xl uppercase text-red-300">
-            Fullstack Web Developer
+            Full Stack Web Developer
           </strong>{" "}
           based in Berlin, Germany.
         </h1>

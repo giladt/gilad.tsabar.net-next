@@ -137,10 +137,10 @@ const AboutPage: FC<aboutProps> = ({}) => {
           <div className="md:max-w-[calc(100%-250px-1rem)] min-w-[250px] flex flex-col gap-2">
             <h2 className="text-xl font-bold">Who am I</h2>
             <p className="font-semibold">
-              I am a passionate Fullstack web developer based in Berlin, Germany{" "}
-              who enjoys building software. Very positive and highly motivated
-              person with over 3 years of experience in building beautiful
-              websites and web-applications with a stronger focus on the
+              I am a passionate Full Stack web developer based in Berlin,
+              Germany who enjoys building software. Very positive and highly
+              motivated person with over 3 years of experience in building
+              beautiful websites and web-applications with a focus on the
               frontend technologies.
             </p>
             <p className="font-semibold">

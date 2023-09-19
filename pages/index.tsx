@@ -9,7 +9,7 @@ const Home: FC<indexProps> = ({}) => {
   return (
     <>
       <Head>
-        <title>Gilad Tsabar | Fullstack Web Developer</title>
+        <title>Gilad Tsabar | Full Stack Web Developer</title>
       </Head>
       <HomePage />
     </>
