@@ -1,4 +1,4 @@
-import AboutPage from "@/components/pages/about";
+import AboutPage from "@/components/templates/about";
 import Head from "next/head";
 
 type PageProps = {};
