@@ -3,6 +3,7 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 
 import type { FC } from "react";
+import { getFile } from "@/utils/files";
 
 interface SkillProps {
   text: string;
@@ -28,8 +29,8 @@ const Home: FC<PageProps> = ({
 export default Home;
 
 export const getStaticProps = (async (context) => {
-  const skillData = await fetch("http://localhost:3000/api/v1/data/skills");
-  const skills: SkillProps[] = JSON.parse(await skillData.json());
+  const skillData = await getFile("skills");
+  const skills: SkillProps[] = JSON.parse(await skillData);
 
   return {
     props: {

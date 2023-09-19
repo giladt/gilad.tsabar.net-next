@@ -1,6 +1,7 @@
 import ProjectsPage from "@/components/templates/projects";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
+import { getFile } from "@/utils/files";
 
 interface ProjectProps {
   title: string;
@@ -30,10 +31,8 @@ export default function Projects({
 }
 
 export const getStaticProps = (async (context) => {
-  const projectsData = await fetch(
-    "http://localhost:3000/api/v1/data/projects"
-  );
-  const projects: ProjectProps[] = JSON.parse(await projectsData.json());
+  const fileData = await getFile("projects");
+  const projects: ProjectProps[] = JSON.parse(await fileData);
 
   return {
     props: {

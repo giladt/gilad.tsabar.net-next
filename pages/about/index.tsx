@@ -2,6 +2,7 @@ import AboutPage from "@/components/templates/about";
 import Head from "next/head";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { Experience } from "@/components/organisms/verticalTimeline";
+import { getFile } from "@/utils/files";
 
 interface SkillProps {
   text: string;
@@ -28,16 +29,10 @@ export default function About({
 }
 
 export const getStaticProps = (async (context) => {
-  const skillData = await fetch("http://localhost:3000/api/v1/data/skills");
-  const skills: SkillProps[] = JSON.parse(await skillData.json());
-  console.log({ skills });
-
-  const experienceData = await fetch(
-    "http://localhost:3000/api/v1/data/experience"
-  );
-  const experience: Experience[] = JSON.parse(await experienceData.json());
-
-  console.log({ experience });
+  const skillsData = await getFile("skills");
+  const skills: SkillProps[] = JSON.parse(await skillsData);
+  const experienceData = await getFile("experience");
+  const experience: Experience[] = JSON.parse(await experienceData);
 
   return {
     props: {
