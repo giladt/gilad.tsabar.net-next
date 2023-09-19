@@ -1,4 +1,4 @@
-import HomePage from "@/components/pages/home";
+import HomePage from "@/components/templates/home";
 import Head from "next/head";
 
 import type { FC } from "react";

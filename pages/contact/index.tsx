@@ -1,4 +1,4 @@
-import ContactMePage from "@/components/pages/contact";
+import ContactMePage from "@/components/templates/contact";
 import Head from "next/head";
 
 type PageProps = {};

@@ -1,4 +1,4 @@
-import ProjectsPage from "@/components/pages/projects";
+import ProjectsPage from "@/components/templates/projects";
 import Head from "next/head";
 
 type PageProps = {};
