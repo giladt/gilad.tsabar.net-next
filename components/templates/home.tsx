@@ -5,9 +5,16 @@ import { AnimatePresence, motion, useMotionValue } from "framer-motion";
 import { WindowContext } from "@/contexts/windowContext";
 import { v4 as uuidv4 } from "uuid";
 
-interface homeProps {}
+interface SkillProps {
+  text: string;
+  src: string;
+}
 
-const HomePage: FC<homeProps> = ({}: homeProps) => {
+interface HomeProps {
+  skills: SkillProps[];
+}
+
+const HomePage: FC<HomeProps> = ({ skills }: HomeProps) => {
   const { clientWidth, clientHeight } = useContext(WindowContext);
 
   const x = useMotionValue(clientWidth);
@@ -18,37 +25,11 @@ const HomePage: FC<homeProps> = ({}: homeProps) => {
     y.set(event.clientY);
   }
 
-  const pills = [
-    { text: "Javascript", src: "/icons/javascript-50.png", size: 30 },
-    { text: "Typescript", src: "/icons/typescript-50.png", size: 30 },
-    { text: "React JS", src: "/icons/react-js-50.png", size: 30 },
-    { text: "Next JS", src: "/icons/nextjs-50.png", size: 30 },
-    { text: "HTML5", src: "/icons/html5-50.png", size: 30 },
-    { text: "CSS3", src: "/icons/css3-50.png", size: 30 },
-    { text: "SASS", src: "/icons/sass-50.png", size: 30 },
-    { text: "TailwindCSS", src: "/icons/tailwind-css-50.png", size: 30 },
-    { text: "NodeJS", src: "/icons/nodejs-50.png", size: 30 },
-    { text: "Git", src: "/icons/git-50.png", size: 30 },
-    { text: "Github", src: "/icons/github-50.png", size: 30 },
-    { text: "Firebase", src: "/icons/firebase-50.png", size: 30 },
-    { text: "GraphQL", src: "/icons/graphql-50.png", size: 30 },
-    { text: "GatsbyJS", src: "/icons/gatsby-js-50.png", size: 30 },
-    { text: "Aurelia JS", src: "/icons/aurelia-50.png", size: 30 },
-    { text: "Ether JS", src: "/icons/ethereum-50.png", size: 30 },
-    { text: "GCP", src: "/icons/google-cloud-platform-50.png", size: 30 },
-    { text: "Webpack", src: "/icons/webpack-50.png", size: 30 },
-    { text: "Vite", src: "/icons/vite-50.png", size: 30 },
-    { text: "Jest", src: "/icons/jest-50.png", size: 30 },
-    { text: "Python", src: "/icons/python-50.png", size: 30 },
-    { text: "Postman", src: "/icons/postman-50.png", size: 30 },
-    { text: "Docker", src: "/icons/docker-50.png", size: 30 },
-  ];
-
   const [pillIndex, setPillIndex] = useState(0);
   useEffect(() => {
     const pillRotate = setTimeout(() => {
       let next = pillIndex + 1;
-      setPillIndex(next % pills.length);
+      setPillIndex(next % skills.length);
     }, 2 * 1000);
 
     return () => {
@@ -124,8 +105,8 @@ const HomePage: FC<homeProps> = ({}: homeProps) => {
               exit={{ translateY: -10, opacity: 0 }}
               transition={{ ease: "easeOut", duration: 0.25 }}
             >
-              <Pill src={pills[pillIndex].src} size={25} rightIcon>
-                {pills[pillIndex].text}
+              <Pill src={skills[pillIndex].src} size={25} rightIcon>
+                {skills[pillIndex].text}
               </Pill>
             </motion.span>
           </AnimatePresence>

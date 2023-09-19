@@ -14,10 +14,10 @@ export interface Experience {
 }
 
 interface VerticalTimelineProps {
-  experiences: Experience[];
+  experience: Experience[];
 }
 
-const VerticalTimeline: FC<VerticalTimelineProps> = ({ experiences }) => {
+const VerticalTimeline: FC<VerticalTimelineProps> = ({ experience }) => {
   return (
     <div className="timeline min-h-full grid content-center gap-4 p-2">
       <ul
@@ -39,8 +39,8 @@ const VerticalTimeline: FC<VerticalTimelineProps> = ({ experiences }) => {
               md:before:col-[2]
             "
       >
-        {experiences.map((experience) => {
-          return <TimelineItem key={uuidv4()} data={experience} />;
+        {experience.map((data) => {
+          return <TimelineItem key={uuidv4()} data={data} />;
         })}
       </ul>
     </div>

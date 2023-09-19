@@ -1,0 +1,71 @@
+[
+  {
+    "title": "Le-Petit-Moabit",
+    "release": "06/2023",
+    "liveUrl": "https://www.tsabar.net",
+    "repoUrl": "https://github.com/giladt/tsabar.next",
+    "description": "Side Project: Booking-Inquiry app for family-owned properties.",
+    "image": "/projects/le-petit-moabit.png",
+    "stack": [
+      { "text": "Next JS", "src": "/icons/nextjs-50.png" },
+      { "text": "React JS", "src": "/icons/react-js-50.png" },
+      { "text": "TailwindCSS", "src": "/icons/tailwind-css-50.png" },
+      { "text": "Typescript", "src": "/icons/typescript-50.png" },
+      { "text": "Marked", "src": "/icons/marked.svg" }
+    ]
+  },
+  {
+    "title": "Prime Deals",
+    "release": "06/2022",
+    "liveUrl": "https://deals.prime.xyz",
+    "repoUrl": "https://github.com/PrimeDAO/prime-deals-dapp",
+    "description": "A part of PrimeDAO’s open-source platform: Decentralized collaboration between DAO’s.",
+    "image": "/projects/prime-deals.png",
+    "stack": [
+      { "text": "Aurelia JS", "src": "/icons/aurelia-50.png" },
+      { "text": "Typescript", "src": "/icons/typescript-50.png" },
+      { "text": "Firebase", "src": "/icons/firebase-50.png" },
+      { "text": "Ether JS", "src": "/icons/ethereum-50.png" },
+      { "text": "CyPress", "src": "/icons/cypress.jpg" }
+    ]
+  },
+  {
+    "title": "Prime Launch",
+    "release": "02/2022",
+    "liveUrl": "https://launch.prime.xyz",
+    "repoUrl": "https://github.com/PrimeDAO/prime-launch-dapp",
+    "description": "A part of PrimeDAO’s open-source DeFi platform: Decentralized Seeds and launches of DAO’s.",
+    "image": "/projects/prime-launch.png",
+    "stack": [
+      { "text": "Aurelia JS", "src": "/icons/aurelia-50.png" },
+      { "text": "Typescript", "src": "/icons/typescript-50.png" },
+      { "text": "Ether JS", "src": "/icons/ethereum-50.png" }
+    ]
+  },
+  {
+    "title": "Tag Supplies",
+    "release": "05/2021",
+    "liveUrl": "https://tag-supplies.vercel.app/",
+    "repoUrl": "https://github.com/giladt/tag-supplies",
+    "description": "Based on the classic game from the '80s.",
+    "image": "/projects/tag-supplies.png",
+    "stack": [
+      { "text": "Vanilla ES6", "src": "/icons/es6.png" },
+      { "text": "HTML5", "src": "/icons/html5-50.png" },
+      { "text": "CSS3", "src": "/icons/css3-50.png" }
+    ]
+  },
+  {
+    "title": "Tetris Game",
+    "release": "08/2020",
+    "liveUrl": "https://giladt.github.io/TetrisGame/",
+    "repoUrl": "https://github.com/giladt/TetrisGame",
+    "description": "Based on the classic game from the '80s.",
+    "image": "/projects/tetris-game.png",
+    "stack": [
+      { "text": "Vanilla ES6", "src": "/icons/es6.png" },
+      { "text": "HTML5", "src": "/icons/html5-50.png" },
+      { "text": "CSS3", "src": "/icons/css3-50.png" }
+    ]
+  }
+]

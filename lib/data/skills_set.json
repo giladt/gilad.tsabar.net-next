@@ -1,0 +1,31 @@
+{
+  "js": { "text": "Javascript", "src": "/icons/javascript-50.png" },
+  "ts": { "text": "Typescript", "src": "/icons/typescript-50.png" },
+  "react": { "text": "React JS", "src": "/icons/react-js-50.png" },
+  "next": { "text": "Next JS", "src": "/icons/nextjs-50.png" },
+  "html": { "text": "HTML5", "src": "/icons/html5-50.png" },
+  "css": { "text": "CSS3", "src": "/icons/css3-50.png" },
+  "sass": { "text": "SASS", "src": "/icons/sass-50.png" },
+  "tailwind": {
+    "text": "TailwindCSS",
+    "src": "/icons/tailwind-css-50.png"
+  },
+  "node": { "text": "NodeJS", "src": "/icons/nodejs-50.png" },
+  "git": { "text": "Git", "src": "/icons/git-50.png" },
+  "github": { "text": "Github", "src": "/icons/github-50.png" },
+  "firebase": { "text": "Firebase", "src": "/icons/firebase-50.png" },
+  "graphql": { "text": "GraphQL", "src": "/icons/graphql-50.png" },
+  "gatsby": { "text": "GatsbyJS", "src": "/icons/gatsby-js-50.png" },
+  "aurelia": { "text": "Aurelia JS", "src": "/icons/aurelia-50.png" },
+  "ether": { "text": "Ether JS", "src": "/icons/ethereum-50.png" },
+  "gcp": { "text": "GCP", "src": "/icons/google-cloud-platform-50.png" },
+  "webpack": { "text": "Webpack", "src": "/icons/webpack-50.png" },
+  "vite": { "text": "Vite", "src": "/icons/vite-50.png" },
+  "jest": { "text": "Jest", "src": "/icons/jest-50.png" },
+  "python": { "text": "Python", "src": "/icons/python-50.png" },
+  "postman": { "text": "Postman", "src": "/icons/postman-50.png" },
+  "docker": { "text": "Docker", "src": "/icons/docker-50.png" },
+  "marked": { "text": "Marked", "src": "/icons/marked.svg" },
+  "es6": { "text": "Vanilla ES6", "src": "/icons/es6.png" },
+  "cypress": { "text": "CyPress", "src": "/icons/cypress.jpg" }
+}
