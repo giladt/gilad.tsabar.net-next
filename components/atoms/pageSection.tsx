@@ -1,6 +1,5 @@
 import { FC, ReactNode } from "react";
 import { motion } from "framer-motion";
-import { v4 as uuidv4 } from "uuid";
 
 interface pageSectionProps {
   label: string;
@@ -8,7 +7,7 @@ interface pageSectionProps {
   children: ReactNode;
 }
 
-export const PageSection: FC<pageSectionProps> = ({
+const Container: FC<pageSectionProps> = ({
   label,
   className = "",
   children,
@@ -28,9 +27,7 @@ interface pageSectionParagraphProps {
   children: ReactNode;
 }
 
-export const PageSectionParagraph: FC<pageSectionParagraphProps> = ({
-  children,
-}) => (
+const Paragraph: FC<pageSectionParagraphProps> = ({ children }) => (
   <article
     className="flex flex-col gap-2
     max-w-[62rem] mb-8 w-full"
@@ -43,7 +40,7 @@ interface pageSectionTilesProps {
   children: ReactNode;
 }
 
-export const PageSectionTiles: FC<pageSectionTilesProps> = ({ children }) => (
+const Tiles: FC<pageSectionTilesProps> = ({ children }) => (
   <motion.article
     className="flex gap-2 flex-wrap grow 
       max-w-[62rem] mb-8 w-full justify-center
@@ -59,7 +56,7 @@ interface pageSectionTitleProps {
   children: ReactNode;
 }
 
-export const PageSectionTitle: FC<pageSectionTitleProps> = ({
+const Title: FC<pageSectionTitleProps> = ({
   small = false,
   align = "center",
   children,
@@ -86,4 +83,9 @@ export const PageSectionTitle: FC<pageSectionTitleProps> = ({
   );
 };
 
-export default PageSectionTitle;
+export const PageSection = {
+  Container,
+  Title,
+  Paragraph,
+  Tiles,
+};
