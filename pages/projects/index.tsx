@@ -1,6 +1,6 @@
 import ProjectsPage from "@/components/templates/projects";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { getFile } from "@/utils/files";
 
 interface ProjectProps {
