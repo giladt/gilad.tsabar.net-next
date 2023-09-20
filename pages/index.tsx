@@ -1,8 +1,8 @@
-import HomePage from "@/components/templates/home";
+import type { FC } from "react";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 
-import type { FC } from "react";
+import HomePage from "@/components/templates/home";
 import { getFile } from "@/utils/files";
 
 interface SkillProps {
