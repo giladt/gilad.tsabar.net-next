@@ -3,7 +3,7 @@ import { type FC, type ReactNode } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import Pill from "@/components/atoms/pill";
-import { ProjectImage } from "@/components/atoms/projectImage";
+import Image from "next/image";
 
 interface ProjectProps {
   title: string;
@@ -16,7 +16,16 @@ interface ProjectProps {
   children: ReactNode;
 }
 
-const Project: FC<ProjectProps> = ({ children, ...args }) => {
+const Project: FC<ProjectProps> = ({
+  title,
+  release,
+  image,
+  priority,
+  liveUrl,
+  repoUrl,
+  stack,
+  children,
+}) => {
   return (
     <div
       className="flex flex-col w-[calc(50%-1.25rem)] min-w-[300px]
@@ -28,19 +37,24 @@ const Project: FC<ProjectProps> = ({ children, ...args }) => {
         flex justify-between items-center
       "
       >
-        {args.title}
-        <span className="text-xl font-light">{args.release}</span>
+        {title}
+        <span className="text-xl font-light">{release}</span>
       </h2>
 
       <div className="flex flex-col  gap-4">
-        <ProjectImage
-          src={args.image}
-          alt={args.title}
-          priority={args.priority}
+        <Image
+          src={image}
+          alt={title}
+          priority={priority}
+          width={500}
+          height={500}
+          className={`w-full flex rounded-lg shadow-lg`}
         />
+
         {children}
+
         <div className="flex flex-wrap gap-4 justify-center">
-          {args.stack.map((pill: any, idx: number) => {
+          {stack.map((pill: any) => {
             return (
               <Pill src={pill.src} size={22} key={uuidv4()}>
                 {pill.text}
@@ -52,14 +66,14 @@ const Project: FC<ProjectProps> = ({ children, ...args }) => {
       <p className="flex gap-2 mt-4 w-full">
         <Link
           className="inline-flex grow justify-center uppercase px-4 py-2 w-min rounded-lg text-black bg-white/50 shadow-sm hover:font-bold hover:shadow-lg hover:bg-white"
-          href={args.liveUrl}
+          href={liveUrl}
           about="A live demo of the project"
         >
           Demo
         </Link>
         <Link
           className="inline-flex grow justify-center uppercase px-4 py-2 w-min rounded-lg text-black bg-white/50 shadow-sm hover:font-bold hover:shadow-lg hover:bg-white"
-          href={args.repoUrl}
+          href={repoUrl}
           about="Project's repository"
         >
           Code
