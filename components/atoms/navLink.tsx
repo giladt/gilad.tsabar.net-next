@@ -11,10 +11,14 @@ interface navLinkProps {
 }
 
 const NavLink = ({ href, icon, children, active, setIsOpen }: navLinkProps) => {
+  const closeNav = () => {
+    setIsOpen(false);
+  };
+
   return (
     <Link
       href={href}
-      onClick={() => setIsOpen(false)}
+      onClick={closeNav}
       className="
         flex flex-col justify-center items-center
         gap-2 whitespace-nowrap
@@ -23,10 +27,7 @@ const NavLink = ({ href, icon, children, active, setIsOpen }: navLinkProps) => {
       "
       style={active ? { color: "white" } : {}}
     >
-      <FontAwesomeIcon
-        className="block text-[1.5rem] text-current"
-        icon={icon}
-      />
+      <FontAwesomeIcon className="block text-current" icon={icon} size="2xl" />
       {children}
     </Link>
   );

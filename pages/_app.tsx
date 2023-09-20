@@ -9,6 +9,10 @@ import Nav from "@/components/organisms/nav";
 
 import { WindowContextProvider } from "@/contexts/windowContext";
 import "@/styles/globals.css";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+// Prevent fontawesome from adding its CSS since we did it manually above:
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
 export default function App({ Component, pageProps }: AppProps) {
   const currentUrl = usePathname();
@@ -21,18 +25,20 @@ export default function App({ Component, pageProps }: AppProps) {
         <motion.div key={uuidv5(currentUrl, uuidv5.URL)}>
           <Component {...pageProps} />
           <motion.div
-            className="absolute top-0 left-0 w-full h-[100vh] bg-slate-100 origin-top"
-            initial={{ scaleY: 0 }}
-            animate={{ scaleY: 0 }}
-            exit={{ scaleY: 1 }}
-            transition={{ duration: 0.35, ease: "anticipate" }}
-          ></motion.div>
-          <motion.div
-            className="absolute top-0 left-0 w-full h-[100vh] bg-slate-100 origin-right"
-            initial={{ scaleX: 1 }}
+            key={uuidv5(currentUrl + "_exit", uuidv5.URL)}
+            className="absolute top-0 left-0 w-full h-[100vh] bg-stone-500 origin-right"
+            initial={{ scaleX: 1.05 }}
             animate={{ scaleX: 0 }}
             exit={{ scaleX: 0 }}
-            transition={{ duration: 0.25, ease: "anticipate" }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+          ></motion.div>
+          <motion.div
+            key={uuidv5(currentUrl + "_enter", uuidv5.URL)}
+            className="absolute top-0 left-0 w-full h-[100vh] bg-stone-500 origin-bottom"
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 0 }}
+            exit={{ scaleY: 1.05 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
           ></motion.div>
         </motion.div>
       </AnimatePresence>
