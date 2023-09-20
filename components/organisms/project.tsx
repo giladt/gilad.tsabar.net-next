@@ -1,9 +1,9 @@
 import Link from "next/link";
-import type { FC, ReactNode } from "react";
+import { type FC, type ReactNode } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import Pill from "@/components/atoms/pill";
-import Image from "next/image";
+import { ProjectImage } from "@/components/atoms/projectImage";
 
 interface ProjectProps {
   title: string;
@@ -20,24 +20,24 @@ const Project: FC<ProjectProps> = ({ children, ...args }) => {
   return (
     <div
       className="flex flex-col w-[calc(50%-1.25rem)] min-w-[300px]
-    min-h-40 rounded-lg p-4 bg-white/20 gap-2 m-2 shadow-lg"
+        min-h-40 rounded-lg p-4 bg-white/20 gap-2 m-2 shadow-lg
+      "
     >
-      <h2 className="text-2xl font-bold py-1 flex justify-between items-center">
+      <h2
+        className="text-2xl font-bold py-1 
+        flex justify-between items-center
+      "
+      >
         {args.title}
         <span className="text-xl font-light">{args.release}</span>
       </h2>
 
-      <div className="relative">
-        <Image
-          src={args.image}
-          width={500}
-          height={500}
-          alt={args.title}
-          priority={args.priority || false}
-          className={`w-full flex rounded-lg shadow-lg`}
-        />
-      </div>
       <div className="flex flex-col  gap-4">
+        <ProjectImage
+          src={args.image}
+          alt={args.title}
+          priority={args.priority}
+        />
         {children}
         <div className="flex flex-wrap gap-4 justify-center">
           {args.stack.map((pill: any, idx: number) => {
