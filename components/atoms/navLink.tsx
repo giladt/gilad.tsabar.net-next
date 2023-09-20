@@ -27,10 +27,7 @@ const NavLink = ({ href, icon, children, active, setIsOpen }: navLinkProps) => {
       "
       style={active ? { color: "white" } : {}}
     >
-      <FontAwesomeIcon
-        className="block text-[1.5rem] text-current"
-        icon={icon}
-      />
+      <FontAwesomeIcon className="block text-2xl text-current" icon={icon} />
       {children}
     </Link>
   );
