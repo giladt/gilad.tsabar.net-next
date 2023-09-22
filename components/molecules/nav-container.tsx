@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ContainerShape from "../atoms/navContainerShape";
+import ContainerShape from "../atoms/nav-container-button";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 interface navContainerProps {

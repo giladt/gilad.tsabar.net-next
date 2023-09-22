@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ReactNode, ReactElement, FC } from "react";
 
-interface pillProps {
+interface PillProps {
   src: string;
   size: number;
   alt?: string;
@@ -9,13 +9,13 @@ interface pillProps {
   children: ReactNode;
 }
 
-const Pill: FC<pillProps> = ({
+const Pill: FC<PillProps> = ({
   src,
   size,
   alt = "",
   rightIcon = false,
   children,
-}: pillProps): ReactElement<HTMLSpanElement> => (
+}: PillProps): ReactElement<HTMLSpanElement> => (
   <span
     className={`inline-flex gap-2 justify-center items-center ${
       rightIcon ? "flex-row-reverse" : "flex-row"

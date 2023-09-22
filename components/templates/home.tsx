@@ -3,15 +3,11 @@ import Pill from "@/components/atoms/pill";
 import MiniMe from "../molecules/miniMe";
 import { AnimatePresence, motion, useMotionValue } from "framer-motion";
 import { WindowContext } from "@/contexts/windowContext";
-import { v4 as uuidv4 } from "uuid";
-
-interface SkillProps {
-  text: string;
-  src: string;
-}
+import { TypIconPill } from "@/lib/types";
+import { Home } from "@/components/atoms/home-elements";
 
 interface HomeProps {
-  skills: SkillProps[];
+  skills: TypIconPill[];
 }
 
 const HomePage: FC<HomeProps> = ({ skills }: HomeProps) => {

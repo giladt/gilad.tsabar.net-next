@@ -1,17 +1,25 @@
-import { FC, ReactNode } from "react";
+import { FC } from "react";
 import { motion } from "framer-motion";
 
-interface pageSectionProps {
-  label: string;
-  className?: string;
-  children: ReactNode;
-}
+import type {
+  TypPageSection,
+  TypPageSectionParagraph,
+  TypPageSectionTiles,
+  TypPageSectionTitle,
+} from "@/lib/types/page-section";
 
-const Container: FC<pageSectionProps> = ({
+/**
+ *
+ * @param label  string
+ * @param className string
+ * @param children React.ReactNode
+ * @returns React.FC<TypPageSection>
+ */
+const Container: FC<TypPageSection> = ({
   label,
   className = "",
   children,
-}: pageSectionProps) => (
+}: TypPageSection) => (
   <section
     aria-labelledby={label}
     className={`${className}
@@ -23,11 +31,7 @@ const Container: FC<pageSectionProps> = ({
   </section>
 );
 
-interface pageSectionParagraphProps {
-  children: ReactNode;
-}
-
-const Paragraph: FC<pageSectionParagraphProps> = ({ children }) => (
+const Paragraph: FC<TypPageSectionParagraph> = ({ children }) => (
   <article
     className="flex flex-col gap-2
     max-w-[62rem] mb-8 w-full"
@@ -36,11 +40,7 @@ const Paragraph: FC<pageSectionParagraphProps> = ({ children }) => (
   </article>
 );
 
-interface pageSectionTilesProps {
-  children: ReactNode;
-}
-
-const Tiles: FC<pageSectionTilesProps> = ({ children }) => (
+const Tiles: FC<TypPageSectionTiles> = ({ children }) => (
   <motion.article
     className="flex gap-2 flex-wrap grow 
       max-w-[62rem] mb-8 w-full justify-center
@@ -50,17 +50,11 @@ const Tiles: FC<pageSectionTilesProps> = ({ children }) => (
   </motion.article>
 );
 
-interface pageSectionTitleProps {
-  small?: boolean;
-  align?: "left" | "center" | "right";
-  children: ReactNode;
-}
-
-const Title: FC<pageSectionTitleProps> = ({
+const Title: FC<TypPageSectionTitle> = ({
   small = false,
   align = "center",
   children,
-}: pageSectionTitleProps) => {
+}: TypPageSectionTitle) => {
   const textAlignment = `text-${align}`;
   return (
     <h2

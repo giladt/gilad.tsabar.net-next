@@ -2,11 +2,11 @@ import { useRef, type FC } from "react";
 import { useInView } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { Experience } from "../organisms/verticalTimeline";
+import type { TypExperience } from "@/lib/types/index";
 
 interface timelineItemProps {
   key: string;
-  data: Experience;
+  data: TypExperience;
 }
 
 const TimelineItem: FC<timelineItemProps> = ({

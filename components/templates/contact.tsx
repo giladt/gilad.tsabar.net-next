@@ -2,7 +2,7 @@ import { useState, type FC, type FormEvent } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-import { PageSection } from "@/components/atoms/pageSection";
+import { PageSection } from "@/components/atoms/page-section";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";

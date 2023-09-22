@@ -1,19 +1,14 @@
 import type { FC } from "react";
 import Image from "next/image";
 
+import { PageSection } from "@/components/atoms/page-section";
+import VerticalTimeline from "@/components/organisms/verticalTimeline";
 import Pill from "@/components/atoms/pill";
-import { PageSection } from "@/components/atoms/pageSection";
-import VerticalTimeline, {
-  type Experience,
-} from "@/components/organisms/verticalTimeline";
-interface SkillProps {
-  text: string;
-  src: string;
-}
+import type { TypExperience, TypIconPill } from "@/lib/types";
 
 interface AboutProps {
-  skills: SkillProps[];
-  experience: Experience[];
+  skills: TypIconPill[];
+  experience: TypExperience[];
 }
 
 const AboutPage: FC<AboutProps> = ({ skills, experience }) => {

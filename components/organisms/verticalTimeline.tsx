@@ -1,20 +1,11 @@
-import { type FC, useRef } from "react";
+import { type FC } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import TimelineItem from "@/components/molecules/timelineItem";
-
-export interface Experience {
-  title: string;
-  begin: string;
-  end: string;
-  company: string;
-  about?: string;
-  location: string;
-  tasks: string[];
-}
+import TimelineItem from "@/components/molecules/timeline-item";
+import type { TypExperience } from "@/lib/types";
 
 interface VerticalTimelineProps {
-  experience: Experience[];
+  experience: TypExperience[];
 }
 
 const VerticalTimeline: FC<VerticalTimelineProps> = ({ experience }) => {

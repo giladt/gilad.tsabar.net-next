@@ -1,5 +1,3 @@
-import NavLink from "@/components/atoms/navLink";
-import NavContainer from "@/components/molecules/navContainer";
 import {
   type FC,
   type ReactElement,
@@ -15,10 +13,13 @@ import {
   faToolbox,
   faPeopleGroup,
 } from "@fortawesome/free-solid-svg-icons";
-import { WindowContext } from "@/contexts/windowContext";
-import { motion, useMotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 
-interface linkProps {
+import { WindowContext } from "@/contexts/windowContext";
+import NavLink from "@/components/atoms/nav-link";
+import NavContainer from "@/components/molecules/nav-container";
+
+interface TypIconLink {
   href: string;
   icon: any;
   text: string;
@@ -28,7 +29,7 @@ interface navProps {
   currentUrl: string;
 }
 
-const sections = [
+const sections: TypIconLink[] = [
   { href: "/", icon: faHome, text: "Home" },
   { href: "/about", icon: faSignHanging, text: "About Me" },
   { href: "/projects", icon: faToolbox, text: "Projects" },
@@ -36,45 +37,52 @@ const sections = [
 ];
 
 const Nav: FC<navProps> = ({ currentUrl }: navProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [mouseInteraction, setMouseInteraction] = useState({
+  const menuButtonDefaultState = {
     distance: false,
     distanceCloser: false,
     iconTop: "50%",
-  });
+  };
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [mouseInteraction, setMouseInteraction] = useState(
+    menuButtonDefaultState
+  );
 
   /**
-   ** RESET NAV ICON
+   * Reset nav icon
    */
-  function resetNavIcon() {
-    setMouseInteraction({
-      distance: false,
-      distanceCloser: false,
-      iconTop: "50%",
-    });
-  }
+  const resetMenuButton = (): void => {
+    setMouseInteraction(menuButtonDefaultState);
+  };
 
   useEffect(() => {
     /**
-     ** CLOSE SIDEBAR WHILE CLICKING OUTSIDE
+     * Closes the sidebar while clicking outside
      */
     function onClickOutside(event: globalThis.MouseEvent): void {
       event.stopPropagation();
       if (!isOpen) return;
+
       if (!(event.target as Element).closest("#nav")) {
         setIsOpen(false);
-        resetNavIcon();
+        resetMenuButton();
       }
     }
 
-    // Mouse leave window
+    /**
+     * Closes the sidebar while mouse leaves window
+     */
     function onMouseLeave(event: globalThis.MouseEvent): void {
+      event.stopPropagation();
+      if (!isOpen) return;
+
       setIsOpen(false);
-      resetNavIcon();
+      resetMenuButton();
     }
 
     window.addEventListener("mousedown", onClickOutside);
     document.addEventListener("mouseleave", onMouseLeave);
+
     return () => {
       window.removeEventListener("click", onClickOutside);
       document.removeEventListener("mouseleave", onMouseLeave);
@@ -87,24 +95,39 @@ const Nav: FC<navProps> = ({ currentUrl }: navProps) => {
   /**
    * Handle Mouse Interaction
    */
-  useMemo(() => {
+  const handleMouseInteraction = () => {
     const mouseY = Math.round((clientY * 100) / clientHeight);
     const mouseX = Math.round((clientX * 100) / clientWidth);
 
-    // Check mouse distance to nav
+    /**
+     * Check mouse distance to nav
+     */
     const outOfBoundary = mouseY >= 90 || mouseY <= 10;
     if (outOfBoundary || isOpen) {
-      resetNavIcon();
+      resetMenuButton();
     } else {
       const isClosedAndNear = !isOpen && mouseX <= 20;
-      // Detect mouse position
+
+      /**
+       * Detect mouse position
+       */
       setMouseInteraction({
-        iconTop: isClosedAndNear ? `${mouseY}%` : "50%",
+        iconTop: isClosedAndNear
+          ? `${mouseY}%`
+          : menuButtonDefaultState.iconTop,
         distance: isClosedAndNear,
         distanceCloser: mouseX <= 10,
       });
     }
-  }, [clientX, clientY, clientHeight, clientWidth, isOpen]);
+  };
+
+  useMemo(handleMouseInteraction, [
+    clientX,
+    clientY,
+    clientHeight,
+    clientWidth,
+    isOpen,
+  ]);
 
   return (
     <motion.nav
@@ -130,7 +153,7 @@ const Nav: FC<navProps> = ({ currentUrl }: navProps) => {
     `}
       >
         {sections.map(
-          (link: linkProps, index: number): ReactElement<HTMLLIElement> => (
+          (link: TypIconLink, index: number): ReactElement<HTMLLIElement> => (
             <li
               key={`nav-link-${index.toString()}`}
               className="w-full min-h-[3rem] mb-6 last:mb-0"

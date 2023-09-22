@@ -1,22 +1,18 @@
+import { TypProject } from "@/lib/types";
 import ProjectsPage from "@/components/templates/projects";
 import Head from "next/head";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { getFile } from "@/utils/files";
 
-interface ProjectProps {
-  title: string;
-  description: string;
-  release: string;
-  liveUrl: string;
-  repoUrl: string;
-  image: string;
-  stack: { text: string; src: string }[];
-}
-
 interface PageProps {
-  projects: ProjectProps[];
+  projects: TypProject[];
 }
 
+/**
+ * Projects Page.
+ * @param props args: projects as ProjectProps[]. Contains the projects data
+ * @returns JSX.Element
+ */
 export default function Projects({
   projects,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -32,7 +28,7 @@ export default function Projects({
 
 export const getStaticProps = (async (context) => {
   const fileData = await getFile("projects");
-  const projects: ProjectProps[] = JSON.parse(await fileData);
+  const projects: TypProject[] = JSON.parse(await fileData);
 
   return {
     props: {

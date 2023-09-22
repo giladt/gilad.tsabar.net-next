@@ -1,17 +1,21 @@
 import React from "react";
-import type { AppProps } from "next/app";
-import { usePathname } from "next/navigation";
 import { Analytics } from "@vercel/analytics/react";
-import { v5 as uuidv5 } from "uuid";
+import { usePathname } from "next/navigation";
+import type { AppProps } from "next/app";
 
+import { v5 as uuidv5 } from "uuid";
 import { AnimatePresence, motion } from "framer-motion";
-import Nav from "@/components/organisms/nav";
+
+import "@fortawesome/fontawesome-svg-core/styles.css";
+/* Prevent fontawesome from adding its CSS since we did it manually above: */
+import { config } from "@fortawesome/fontawesome-svg-core";
 
 import { WindowContextProvider } from "@/contexts/windowContext";
+import Nav from "@/components/organisms/nav";
+import PageTransition from "@/components/organisms/page-transition";
+
 import "@/styles/globals.css";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-// Prevent fontawesome from adding its CSS since we did it manually above:
-import { config } from "@fortawesome/fontawesome-svg-core";
+
 config.autoAddCss = false;
 
 export default function App({ Component, pageProps }: AppProps) {
