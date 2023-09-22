@@ -9,6 +9,23 @@ interface SubscribeRequest extends NextApiRequest {
   }
 }
 
+const composeMessageBody = (email: string, name: string, message: string) => ({
+  ...mailOptions,
+  replyTo: email,
+  subject: "New Message from gilad.tsabar.net",
+  text: "A new message from `gilad.tsabar.net`",
+  html: `
+          <div>
+            <h1>New message for you from ${name}</h1>
+            <ul>
+              <li>Email: ${email}</li>
+            </ul>
+            <h2>Message</h2>
+            <p>${message}</p>
+          </div>
+        `
+})
+
 export default async function handler(request: SubscribeRequest, response: NextApiResponse) {
   if (request.method !== "POST") {
     response.status(405).send("Method not allowed");
@@ -16,24 +33,12 @@ export default async function handler(request: SubscribeRequest, response: NextA
   }
   try {
     const body = request.body;
-    if (body.name && body.email && body.message) {
+    const { email, name, message } = body;
 
-      const isSent = await transporter.sendMail({
-        ...mailOptions,
-        replyTo: body.email,
-        subject: "New Message from gilad.tsabar.net",
-        text: "A new message from `gilad.tsabar.net`",
-        html: `
-          <div>
-            <h1>New message for you from ${body.name}</h1>
-            <ul>
-              <li>Email: ${body.email}</li>
-            </ul>
-            <h2>Message</h2>
-            <p>${body.message}</p>
-          </div>
-        `
-      })
+    if (name && email && message) {
+
+      const isSent = await transporter.sendMail(composeMessageBody(name, email, message));
+      if (isSent.rejected) return response.status(404).json("Message rejected.")
       return await response.status(200).json(body);
     } else {
       return response.status(400).json({ error: "Bad request." });
