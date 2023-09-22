@@ -20,30 +20,18 @@ config.autoAddCss = false;
 
 export default function App({ Component, pageProps }: AppProps) {
   const currentUrl = usePathname();
+  const genKey = (id: string = "container") =>
+    uuidv5(currentUrl + "_" + id, uuidv5.URL);
 
   return (
     <WindowContextProvider>
       <Nav currentUrl={currentUrl} />
 
       <AnimatePresence initial={false} mode="wait">
-        <motion.div key={uuidv5(currentUrl, uuidv5.URL)}>
+        <motion.div key={genKey()}>
           <Component {...pageProps} />
-          <motion.div
-            key={uuidv5(currentUrl + "_exit", uuidv5.URL)}
-            className="absolute top-0 left-0 w-full h-[100vh] bg-stone-500 origin-right"
-            initial={{ scaleX: 1.05 }}
-            animate={{ scaleX: 0 }}
-            exit={{ scaleX: 0 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-          ></motion.div>
-          <motion.div
-            key={uuidv5(currentUrl + "_enter", uuidv5.URL)}
-            className="absolute top-0 left-0 w-full h-[100vh] bg-stone-500 origin-bottom"
-            initial={{ scaleY: 0 }}
-            animate={{ scaleY: 0 }}
-            exit={{ scaleY: 1.05 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          ></motion.div>
+          <PageTransition id={genKey("enter")} dir="horizontal" />
+          <PageTransition id={genKey("exit")} dir="vertical-exit" />
         </motion.div>
       </AnimatePresence>
       <Analytics />
