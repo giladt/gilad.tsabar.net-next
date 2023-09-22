@@ -5,6 +5,7 @@ import {
   useState,
   useContext,
   useMemo,
+  useCallback,
 } from "react";
 
 import {
@@ -25,7 +26,7 @@ interface TypIconLink {
   text: string;
 }
 
-interface navProps {
+interface NavProps {
   currentUrl: string;
 }
 
@@ -36,12 +37,15 @@ const sections: TypIconLink[] = [
   { href: "/contact", icon: faPeopleGroup, text: "Contact Me" },
 ];
 
-const Nav: FC<navProps> = ({ currentUrl }: navProps) => {
-  const menuButtonDefaultState = {
-    distance: false,
-    distanceCloser: false,
-    iconTop: "50%",
-  };
+const Nav: FC<NavProps> = ({ currentUrl }: NavProps) => {
+  const menuButtonDefaultState = useMemo(
+    () => ({
+      distance: false,
+      distanceCloser: false,
+      iconTop: "50%",
+    }),
+    []
+  );
 
   const [isOpen, setIsOpen] = useState(false);
   const [mouseInteraction, setMouseInteraction] = useState(
@@ -51,9 +55,9 @@ const Nav: FC<navProps> = ({ currentUrl }: navProps) => {
   /**
    * Reset nav icon
    */
-  const resetMenuButton = (): void => {
+  const resetMenuButton = useCallback((): void => {
     setMouseInteraction(menuButtonDefaultState);
-  };
+  }, [menuButtonDefaultState]);
 
   useEffect(() => {
     /**
@@ -80,14 +84,14 @@ const Nav: FC<navProps> = ({ currentUrl }: navProps) => {
       resetMenuButton();
     }
 
-    window.addEventListener("mousedown", onClickOutside);
-    document.addEventListener("mouseleave", onMouseLeave);
+    if (!window.onmousedown) window.onmousedown = onClickOutside;
+    if (!document.onmouseleave) document.onmouseleave = onMouseLeave;
 
     return () => {
-      window.removeEventListener("click", onClickOutside);
-      document.removeEventListener("mouseleave", onMouseLeave);
+      window.onmousedown = null;
+      document.onmouseleave = null;
     };
-  }, [isOpen]);
+  }, [isOpen, resetMenuButton]);
 
   const { clientWidth, clientHeight, clientX, clientY } =
     useContext(WindowContext);
@@ -127,6 +131,8 @@ const Nav: FC<navProps> = ({ currentUrl }: navProps) => {
     clientHeight,
     clientWidth,
     isOpen,
+    menuButtonDefaultState,
+    resetMenuButton,
   ]);
 
   return (

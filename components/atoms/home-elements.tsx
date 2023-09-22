@@ -1,8 +1,42 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useState, FC } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import Pill from "@/components/atoms/pill";
 import { TypIconPill } from "@/lib/types";
+
+type RotatePillElProps = { items: TypIconPill[] };
+const RotatePillEl: FC<RotatePillElProps> = ({
+  items,
+}: RotatePillElProps): JSX.Element => {
+  const [itemIndex, setItemIndex] = useState(0);
+  useEffect(() => {
+    const pillRotate = setTimeout(() => {
+      let next = itemIndex + 1;
+      setItemIndex(next % items.length);
+    }, 2 * 1000);
+
+    return () => {
+      clearTimeout(pillRotate);
+    };
+  }, [itemIndex, items.length]);
+
+  return (
+    <AnimatePresence initial={true} mode="wait">
+      <motion.span
+        className="inline-flex gap-2 items-center justify-center py-2 rounded-md"
+        key={itemIndex}
+        initial={{ translateY: 10, opacity: 0 }}
+        animate={{ translateY: 0, opacity: 1 }}
+        exit={{ translateY: -10, opacity: 0 }}
+        transition={{ ease: "easeOut", duration: 0.25 }}
+      >
+        <Pill src={items[itemIndex].src} size={25} rightIcon>
+          {items[itemIndex].text}
+        </Pill>
+      </motion.span>
+    </AnimatePresence>
+  );
+};
 
 export const Home = {
   container: ({ children }: { children: ReactNode }): JSX.Element => (
@@ -25,34 +59,7 @@ export const Home = {
       {children}
     </h3>
   ),
-  rotatePill: ({ items }: { items: TypIconPill[] }): JSX.Element => {
-    const [itemIndex, setItemIndex] = useState(0);
-    useEffect(() => {
-      const pillRotate = setTimeout(() => {
-        let next = itemIndex + 1;
-        setItemIndex(next % items.length);
-      }, 2 * 1000);
-
-      return () => {
-        clearTimeout(pillRotate);
-      };
-    }, [itemIndex]);
-
-    return (
-      <AnimatePresence initial={true} mode="wait">
-        <motion.span
-          className="inline-flex gap-2 items-center justify-center py-2 rounded-md"
-          key={itemIndex}
-          initial={{ translateY: 10, opacity: 0 }}
-          animate={{ translateY: 0, opacity: 1 }}
-          exit={{ translateY: -10, opacity: 0 }}
-          transition={{ ease: "easeOut", duration: 0.25 }}
-        >
-          <Pill src={items[itemIndex].src} size={25} rightIcon>
-            {items[itemIndex].text}
-          </Pill>
-        </motion.span>
-      </AnimatePresence>
-    );
-  },
+  rotatePill: ({ items }: { items: TypIconPill[] }): JSX.Element => (
+    <RotatePillEl items={items} />
+  ),
 };
