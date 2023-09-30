@@ -198,19 +198,24 @@ const MiniMe = ({ x, y }: MiniMeProps) => {
         type: "spring",
         duration: 1,
       }}
-      className="w-[400px] h-[400px] m-4
+      className="w-[400px] h-[450px] m-4
         flex place-items-center place-content-center 
-        rounded-[30px] bg-white/5 overflow-hidden
-      "
+        bg-[radial-gradient(circle_closest-side_at_200px_250px,rgba(255,255,255,5%)_99%,transparent)]
+        rounded-b-full
+        overflow-hidden
+        "
     >
       <motion.div
         initial={{ y: 500, opacity: 0 }}
-        animate={{ y: 10, opacity: 1 }}
+        animate={{ y: -185, opacity: 1, scale: 1.35 }}
         exit={{ opacity: 0, transition: { duration: 0 } }}
         transition={{
           type: "spring",
           duration: 2,
         }}
+        className="
+          opacity-100 w-[400px] h-[420px]
+          "
       >
         <motion.svg
           style={styleBody}
