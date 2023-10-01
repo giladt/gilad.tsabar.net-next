@@ -4,6 +4,13 @@ import { motion, useMotionValue } from "framer-motion";
 import { WindowContext } from "@/contexts/windowContext";
 import { TypIconPill } from "@/lib/types";
 import { Home } from "@/components/atoms/home-elements";
+import { PageLink } from "@/components/atoms/page-link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPeopleGroup,
+  faSignHanging,
+  faToolbox,
+} from "@fortawesome/free-solid-svg-icons";
 
 interface HomeProps {
   skills: TypIconPill[];
@@ -51,6 +58,17 @@ const HomePage: FC<HomeProps> = ({ skills }: HomeProps) => {
           building the web and working with technologies like{" "}
           <Home.rotatePill items={skills} />
         </Home.h3>
+        <section className="flex gap-4 mt-8 max-sm:flex-col">
+          <PageLink href="/about" about="More about me">
+            <FontAwesomeIcon icon={faSignHanging} /> Been there, Done that
+          </PageLink>
+          <PageLink href="/projects" about="Projects I've done">
+            <FontAwesomeIcon icon={faToolbox} /> Me, Showing off
+          </PageLink>
+          <PageLink href="/contact" about="Contact Me">
+            <FontAwesomeIcon icon={faPeopleGroup} /> Drop me a message
+          </PageLink>
+        </section>
       </Home.container>
       <MiniMe x={x} y={y} />
     </motion.header>
