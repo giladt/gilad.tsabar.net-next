@@ -70,7 +70,7 @@ const HomePage: FC<HomeProps> = ({ skills }: HomeProps) => {
           </PageLink>
         </section>
       </Home.container>
-      <MiniMe x={x} y={y} />
+      <MiniMe x={x} y={y} className="max-sm:hidden" />
     </motion.header>
   );
 };
