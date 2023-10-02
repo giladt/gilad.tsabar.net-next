@@ -202,20 +202,21 @@ const MiniMe = ({ className = "", x, y }: MiniMeProps) => {
           duration: 1,
         }}
         className={`${className} 
-        w-[400px] h-[450px] m-4
-        flex place-items-center place-content-center 
-        bg-[radial-gradient(circle_closest-side_at_200px_250px,rgba(255,255,255,15%)_0%,rgba(255,255,255,15%)_90%,rgba(0,0,0,5%)_98%,rgba(255,255,255,100%)_99%,rgba(255,255,255,100%)_100%,transparent)]
-        rounded-b-full
-        overflow-hidden
-      `}
+          w-[400px] h-[450px] m-4
+          flex place-items-center place-content-center 
+          bg-[radial-gradient(circle_closest-side_at_200px_250px,rgba(255,255,255,15%)_0%,rgba(255,255,255,15%)_90%,rgba(0,0,0,5%)_98%,rgba(255,255,255,100%)_99%,rgba(255,255,255,100%)_100%,transparent)]
+          rounded-b-full
+          overflow-hidden
+        `}
       >
         <motion.div
-          initial={{ y: 500, opacity: 0 }}
-          animate={{ y: -185, opacity: 1, scale: 1.35 }}
+          initial={{ y: 500 }}
+          animate={{ y: -185, scale: 1.35 }}
           exit={{ opacity: 0, transition: { duration: 0 } }}
           transition={{
+            delay: 1,
             type: "spring",
-            duration: 2,
+            duration: 1,
           }}
           className="opacity-100 w-[400px] h-[420px]"
         >
