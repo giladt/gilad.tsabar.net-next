@@ -37,14 +37,14 @@ const RotatePillEl: FC<RotatePillElProps> = ({
     </AnimatePresence>
   );
 };
+
 type HomeComponent = {
   className?: string;
   children: ReactNode;
 };
 
 export const Home = {
-  container: ({ children }: HomeComponent): JSX.Element => (
-  ),
+  container: ({ children }: HomeComponent): JSX.Element => <>{children}</>,
   h1: ({ children }: HomeComponent): JSX.Element => (
     <h1 className="contents uppercase text-red-300 font-bold text-5xl max-sm:text-2xl">
       {children}
@@ -61,7 +61,7 @@ export const Home = {
     </h3>
   ),
   span: ({ className = "", children }: HomeComponent): JSX.Element => (
-    <motion.span className={className}>{children}</motion.span>
+    <span className={className}>{children}</span>
   ),
   section: ({ className = "", children }: HomeComponent): JSX.Element => {
     const classNames = Array.from(
@@ -73,7 +73,7 @@ export const Home = {
         ...className.split(" "),
       ])
     ).join(" ");
-    return <motion.section className={classNames}>{children}</motion.section>;
+    return <section className={classNames}>{children}</section>;
   },
   rotatePill: ({ items }: { items: TypIconPill[] }): JSX.Element => (
     <RotatePillEl items={items} />

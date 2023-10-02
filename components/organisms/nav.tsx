@@ -73,28 +73,22 @@ const Nav: FC<NavProps> = ({ currentUrl }: NavProps) => {
       }
     }
 
-    /**
-     * Closes the sidebar while mouse leaves window
-     */
-    function onMouseLeave(event: globalThis.MouseEvent): void {
-      event.stopPropagation();
-      if (!isOpen) return;
-
-      setIsOpen(false);
-      resetMenuButton();
-    }
-
     if (!window.onmousedown) window.onmousedown = onClickOutside;
-    if (!document.onmouseleave) document.onmouseleave = onMouseLeave;
 
     return () => {
       window.onmousedown = null;
-      document.onmouseleave = null;
     };
   }, [isOpen, resetMenuButton]);
 
-  const { clientWidth, clientHeight, clientX, clientY } =
+  const { clientWidth, clientHeight, clientX, clientY, clientLeave } =
     useContext(WindowContext);
+
+  /**
+   * Closes the sidebar while mouse leaves the document
+   */
+  useEffect(() => {
+    if (clientLeave) setIsOpen(false);
+  }, [clientLeave]);
 
   /**
    * Handle Mouse Interaction

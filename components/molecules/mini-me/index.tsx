@@ -1,28 +1,35 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import {
   motion,
-  MotionValue,
   MotionStyle,
   useInView,
   useTransform,
+  useMotionValue,
   AnimatePresence,
 } from "framer-motion";
 import { WindowContext } from "@/contexts/windowContext";
 
 interface MiniMeProps {
   className?: string;
-  x: MotionValue<number>;
-  y: MotionValue<number>;
 }
 
 export type Ref = HTMLHeadingElement;
 
-const MiniMe = ({ className = "", x, y }: MiniMeProps) => {
-  const { clientWidth, clientHeight } = useContext(WindowContext);
+const MiniMe = ({ className = "" }: MiniMeProps) => {
+  const { clientWidth, clientHeight, clientX, clientY } =
+    useContext(WindowContext);
   const [positionRatio, setPositionRatio] = useState<{
     horizontal: number;
     vertical: number;
   }>();
+
+  const x = useMotionValue(clientWidth);
+  const y = useMotionValue(clientHeight);
+
+  useEffect(() => {
+    x.set(clientX);
+    y.set(clientY);
+  }, [clientX, clientY]);
 
   const getPositionRatio = (
     range: [number, number],
