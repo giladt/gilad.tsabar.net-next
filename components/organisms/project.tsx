@@ -2,6 +2,9 @@ import { type FC, type ReactNode } from "react";
 import Image from "next/image";
 import { v4 as uuidv4 } from "uuid";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+
 import Pill from "@/components/atoms/pill";
 import { PageLink } from "@/components/atoms/page-link";
 
@@ -65,9 +68,11 @@ const Project: FC<ProjectProps> = ({
       </div>
         <PageLink light href={liveUrl} about="A live demo of the project">
           Demo
+          <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
         </PageLink>
         <PageLink light href={repoUrl} about="Project's repository">
           Code
+          <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
         </PageLink>
       </p>
     </div>
