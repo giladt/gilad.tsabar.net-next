@@ -64,13 +64,15 @@ export const Home = {
     <motion.span className={className}>{children}</motion.span>
   ),
   section: ({ className = "", children }: HomeComponent): JSX.Element => {
-    const classNames = Array.from(new Set([
-      "flex",
-      "gap-4",
-      "mt-8",
-      "max-sm:flex-col",
-      ...className.split(" "),
-    ])).join(" ");
+    const classNames = Array.from(
+      new Set([
+        "flex",
+        "gap-4",
+        "mt-8",
+        "max-sm:flex-col",
+        ...className.split(" "),
+      ])
+    ).join(" ");
     return <motion.section className={classNames}>{children}</motion.section>;
   },
   rotatePill: ({ items }: { items: TypIconPill[] }): JSX.Element => (
