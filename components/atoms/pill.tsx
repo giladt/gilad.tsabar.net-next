@@ -17,7 +17,7 @@ const Pill: FC<PillProps> = ({
   children,
 }: PillProps): ReactElement<HTMLSpanElement> => (
   <span
-    className={`inline-flex gap-2 justify-center items-center ${
+    className={`inline-flex gap-2 justify-center items-center whitespace-nowrap ${
       rightIcon ? "flex-row-reverse" : "flex-row"
     }`}
   >

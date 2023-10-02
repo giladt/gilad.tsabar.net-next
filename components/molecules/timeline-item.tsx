@@ -73,6 +73,9 @@ const TimelineItem: FC<timelineItemProps> = ({
           text-white
           text-xl
           font-bold
+          break-keep
+          max-sm:text-base
+          max-sm:leading-[1.1rem]
 
           grid
           place-content-center
