@@ -43,22 +43,19 @@ type HomeComponent = {
 };
 
 export const Home = {
-  container: ({ children }: { children: ReactNode }): JSX.Element => (
-    <div className="flex flex-col pt-8 max-w-4xl max-sm:pl-12 max-sm:pr-4 gap-2 w-full">
-      {children}
-    </div>
+  container: ({ children }: HomeComponent): JSX.Element => (
   ),
-  h1: ({ children }: { children: ReactNode }): JSX.Element => (
+  h1: ({ children }: HomeComponent): JSX.Element => (
     <h1 className="contents uppercase text-red-300 font-bold text-5xl max-sm:text-2xl">
       {children}
     </h1>
   ),
-  h2: ({ children }: { children: ReactNode }): JSX.Element => (
+  h2: ({ children }: HomeComponent): JSX.Element => (
     <h2 className="contents uppercase text-red-300 font-bold text-7xl max-sm:text-5xl">
       {children}
     </h2>
   ),
-  h3: ({ children }: { children: ReactNode }): JSX.Element => (
+  h3: ({ children }: HomeComponent): JSX.Element => (
     <h3 className="text-2xl max-sm:text-xl text-stone-300 font-bold">
       {children}
     </h3>
