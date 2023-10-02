@@ -37,6 +37,10 @@ const RotatePillEl: FC<RotatePillElProps> = ({
     </AnimatePresence>
   );
 };
+type HomeComponent = {
+  className?: string;
+  children: ReactNode;
+};
 
 export const Home = {
   container: ({ children }: { children: ReactNode }): JSX.Element => (
@@ -59,6 +63,19 @@ export const Home = {
       {children}
     </h3>
   ),
+  span: ({ className = "", children }: HomeComponent): JSX.Element => (
+    <motion.span className={className}>{children}</motion.span>
+  ),
+  section: ({ className = "", children }: HomeComponent): JSX.Element => {
+    const classNames = Array.from(new Set([
+      "flex",
+      "gap-4",
+      "mt-8",
+      "max-sm:flex-col",
+      ...className.split(" "),
+    ])).join(" ");
+    return <motion.section className={classNames}>{children}</motion.section>;
+  },
   rotatePill: ({ items }: { items: TypIconPill[] }): JSX.Element => (
     <RotatePillEl items={items} />
   ),

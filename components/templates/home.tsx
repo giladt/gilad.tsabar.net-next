@@ -31,6 +31,7 @@ const HomePage: FC<HomeProps> = ({ skills }: HomeProps) => {
     <motion.header
       onMouseMove={handleMouse}
       className="flex flex-row flex-wrap items-center justify-center 
+      max-2xl:pl-16 max-2xl:pr-4
       w-full min-h-[100vh] relative gap-4
       bg-[#330867] bg-gradient-to-br 
       from-[#330867] to-[#880110] from-50% to-100%
@@ -43,22 +44,22 @@ const HomePage: FC<HomeProps> = ({ skills }: HomeProps) => {
       text-white"
     >
       <Home.container>
-        <span className="text-2xl max-sm:text-lg">
+        <Home.span className="text-2xl max-sm:text-lg">
           Hey there, <br />
-        </span>
-        <span className="text-3xl max-sm:text-xl">
+        </Home.span>
+        <Home.span className="text-3xl max-sm:text-xl">
           My name is <Home.h1>Gilad Tsabar</Home.h1>,
-        </span>
-        <span className="text-5xl max-sm:text-2xl">
+        </Home.span>
+        <Home.span className="text-5xl max-sm:text-2xl">
           I am a <Home.h2>Full Stack Web Developer</Home.h2> based in Berlin,
           Germany.
-        </span>
+        </Home.span>
         <Home.h3>
           Specialized in frontend development with over 4 years of experience in
           building the web and working with technologies like{" "}
           <Home.rotatePill items={skills} />
         </Home.h3>
-        <section className="flex gap-4 mt-8 max-sm:flex-col">
+        <Home.section>
           <PageLink href="/about" about="More about me">
             <FontAwesomeIcon icon={faSignHanging} /> Been there, Done that
           </PageLink>
@@ -68,7 +69,7 @@ const HomePage: FC<HomeProps> = ({ skills }: HomeProps) => {
           <PageLink href="/contact" about="Contact Me">
             <FontAwesomeIcon icon={faPeopleGroup} /> Drop me a message
           </PageLink>
-        </section>
+        </Home.section>
       </Home.container>
       <MiniMe x={x} y={y} className="max-sm:hidden" />
     </motion.header>
