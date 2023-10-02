@@ -1,9 +1,9 @@
-import Link from "next/link";
 import { type FC, type ReactNode } from "react";
+import Image from "next/image";
 import { v4 as uuidv4 } from "uuid";
 
 import Pill from "@/components/atoms/pill";
-import Image from "next/image";
+import { PageLink } from "@/components/atoms/page-link";
 
 interface ProjectProps {
   title: string;
@@ -63,21 +63,12 @@ const Project: FC<ProjectProps> = ({
           })}
         </div>
       </div>
-      <p className="flex gap-2 mt-4 w-full">
-        <Link
-          className="inline-flex grow justify-center uppercase px-4 py-2 w-min rounded-lg text-black bg-white/50 shadow-sm hover:font-bold hover:shadow-lg hover:bg-white"
-          href={liveUrl}
-          about="A live demo of the project"
-        >
+        <PageLink light href={liveUrl} about="A live demo of the project">
           Demo
-        </Link>
-        <Link
-          className="inline-flex grow justify-center uppercase px-4 py-2 w-min rounded-lg text-black bg-white/50 shadow-sm hover:font-bold hover:shadow-lg hover:bg-white"
-          href={repoUrl}
-          about="Project's repository"
-        >
+        </PageLink>
+        <PageLink light href={repoUrl} about="Project's repository">
           Code
-        </Link>
+        </PageLink>
       </p>
     </div>
   );

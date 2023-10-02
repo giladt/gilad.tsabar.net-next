@@ -4,15 +4,22 @@ import type { FC, ReactNode } from "react";
 type PageLinkProps = {
   href: string;
   about: string;
+  light?: boolean;
   children: ReactNode;
 };
 
-export const PageLink: FC<PageLinkProps> = ({ href, about, children }) => {
+export const PageLink: FC<PageLinkProps> = ({
+  href,
+  light = false,
+  about,
+  children,
+}) => {
+  const textColor = light ? "text-black" : "text-white";
   return (
     <Link
       href={href}
       about={about}
-      className="relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-bold text-white rounded-md shadow-2xl group"
+      className={`relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-bold ${textColor} hover:text-white rounded-md shadow-2xl group`}
     >
       <span className="absolute inset-0 w-full h-full transition duration-300 ease-out opacity-0 bg-gradient-to-br from-pink-600 via-purple-700 to-blue-400 group-hover:opacity-100"></span>
       {/* Top glass gradient */}
