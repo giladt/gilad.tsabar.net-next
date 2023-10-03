@@ -1,17 +1,13 @@
-import AboutPage from "@/components/templates/about";
 import Head from "next/head";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { Experience } from "@/components/organisms/verticalTimeline";
-import { getFile } from "@/utils/files";
 
-interface SkillProps {
-  text: string;
-  src: string;
-}
+import AboutPage from "@/components/templates/about";
+import { getFile } from "@/utils/files";
+import { TypExperience, TypIconPill } from "@/lib/types/index";
 
 interface PageProps {
-  skills: SkillProps[];
-  experience: Experience[];
+  skills: TypIconPill[];
+  experience: TypExperience[];
 }
 
 export default function About({
@@ -30,9 +26,9 @@ export default function About({
 
 export const getStaticProps = (async (context) => {
   const skillsData = await getFile("skills");
-  const skills: SkillProps[] = JSON.parse(await skillsData);
+  const skills: TypIconPill[] = JSON.parse(await skillsData);
   const experienceData = await getFile("experience");
-  const experience: Experience[] = JSON.parse(await experienceData);
+  const experience: TypExperience[] = JSON.parse(await experienceData);
 
   return {
     props: {

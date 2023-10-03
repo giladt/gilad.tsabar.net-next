@@ -1,23 +1,17 @@
 import type { FC } from "react";
-import Project from "@/components/organisms/project";
-import { PageSection } from "@/components/atoms/pageSection";
 import { v4 as uuidv4 } from "uuid";
 
-interface ProjectProps {
-  title: string;
-  description: string;
-  release: string;
-  liveUrl: string;
-  repoUrl: string;
-  image: string;
-  stack: { text: string; src: string }[];
+import Project from "@/components/organisms/project";
+import { PageSection } from "@/components/atoms/page-section";
+import { TypProject } from "@/lib/types";
+
+interface ProjectsPageProps {
+  projects: TypProject[];
 }
 
-interface ProjectsProps {
-  projects: ProjectProps[];
-}
-
-const ProjectsPage: FC<ProjectsProps> = ({ projects }: ProjectsProps) => {
+const ProjectsPage: FC<ProjectsPageProps> = ({
+  projects,
+}: ProjectsPageProps) => {
   return (
     <PageSection.Container label="projects" className="bg-stone-200 text-black">
       <PageSection.Title align="left">Projects</PageSection.Title>
@@ -31,4 +25,5 @@ const ProjectsPage: FC<ProjectsProps> = ({ projects }: ProjectsProps) => {
     </PageSection.Container>
   );
 };
+
 export default ProjectsPage;

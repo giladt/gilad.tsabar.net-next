@@ -4,14 +4,10 @@ import Head from "next/head";
 
 import HomePage from "@/components/templates/home";
 import { getFile } from "@/utils/files";
-
-interface SkillProps {
-  text: string;
-  src: string;
-}
+import { TypIconPill } from "@/lib/types";
 
 interface PageProps {
-  skills: SkillProps[];
+  skills: TypIconPill[];
 }
 
 const Home: FC<PageProps> = ({
@@ -30,7 +26,7 @@ export default Home;
 
 export const getStaticProps = (async (context) => {
   const skillData = await getFile("skills");
-  const skills: SkillProps[] = JSON.parse(await skillData);
+  const skills: TypIconPill[] = JSON.parse(await skillData);
 
   return {
     props: {
