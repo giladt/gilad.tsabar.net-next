@@ -6,15 +6,15 @@ import type { AppProps } from "next/app";
 import { v5 as uuidv5 } from "uuid";
 import { AnimatePresence, motion } from "framer-motion";
 
-import "@fortawesome/fontawesome-svg-core/styles.css";
-/* Prevent fontawesome from adding its CSS since we did it manually above: */
-import { config } from "@fortawesome/fontawesome-svg-core";
-
 import { WindowContextProvider } from "@/contexts/windowContext";
 import Nav from "@/components/organisms/nav";
 import PageTransition from "@/components/organisms/page-transition";
 
 import "@/styles/globals.css";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+// Prevent fontawesome from adding its CSS since we did it manually above:
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
 
 config.autoAddCss = false;
 
