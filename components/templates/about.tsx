@@ -22,7 +22,7 @@ const AboutPage: FC<AboutProps> = ({ skills, experience }) => {
             <p className="font-semibold">
               I am a passionate Full Stack web developer based in Berlin,
               Germany who enjoys building software. Very positive and highly
-              motivated person with over 3 years of experience in building
+              motivated person with over 4 years of experience in building
               beautiful websites and web-applications with a focus on the
               frontend technologies.
             </p>

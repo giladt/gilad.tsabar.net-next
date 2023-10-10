@@ -8,7 +8,7 @@ export default function Document() {
           name="description"
           content="
           a FULLSTACK WEB DEVELOPER based in Berlin, Germany. 
-          Specialized in frontend development with over 3 years 
+          Specialized in frontend development with over 4 years 
           of experience in building the web and working with 
           technologies like React, NextJS, NodeJS, GCP and more.
         "
