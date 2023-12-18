@@ -1,6 +1,6 @@
 [
-  { "text": "Javascript", "src": "/icons/javascript-50.png" },
   { "text": "Typescript", "src": "/icons/typescript-50.png" },
+  { "text": "Javascript", "src": "/icons/javascript-50.png" },
   { "text": "React JS", "src": "/icons/react-js-50.png" },
   { "text": "Next JS", "src": "/icons/nextjs-50.png" },
   { "text": "HTML5", "src": "/icons/html5-50.png" },
