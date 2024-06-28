@@ -36,9 +36,10 @@ const NavContainer: FC<navContainerProps> = ({
     <div
       id="nav_icon"
       className={`
-      ${nav_icon_classes} 
-      ${nav_icon_distance_classes} 
-      ${nav_icon_distanceCloser_classes}`}
+        ${nav_icon_classes} 
+        ${nav_icon_distance_classes} 
+        ${nav_icon_distanceCloser_classes}
+      `}
       style={{ top: mouseInteraction.iconTop }}
       onClick={handleNavToggle}
     >

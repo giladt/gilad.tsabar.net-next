@@ -48,18 +48,19 @@ const Nav: FC<NavProps> = ({ currentUrl }: NavProps) => {
   );
 
   const [isOpen, setIsOpen] = useState(false);
-  const [mouseInteraction, setMouseInteraction] = useState(
-    menuButtonDefaultState
-  );
+  // const [mouseInteraction, setMouseInteraction] = useState(
+  //   menuButtonDefaultState
+  // );
 
   /**
    * Reset nav icon
    */
-  const resetMenuButton = useCallback((): void => {
-    setMouseInteraction(menuButtonDefaultState);
-  }, [menuButtonDefaultState]);
+  // const resetMenuButton = useCallback((): void => {
+  //   mouseInteraction(menuButtonDefaultState);
+  // }, [menuButtonDefaultState]);
 
   useEffect(() => {
+    console.log('📺 isOpen')
     /**
      * Closes the sidebar while clicking outside
      */
@@ -69,7 +70,7 @@ const Nav: FC<NavProps> = ({ currentUrl }: NavProps) => {
 
       if (!(event.target as Element).closest("#nav")) {
         setIsOpen(false);
-        resetMenuButton();
+        // resetMenuButton();
       }
     }
 
@@ -78,7 +79,7 @@ const Nav: FC<NavProps> = ({ currentUrl }: NavProps) => {
     return () => {
       window.onmousedown = null;
     };
-  }, [isOpen, resetMenuButton]);
+  }, [isOpen]);
 
   const { clientWidth, clientHeight, clientX, clientY, clientLeave } =
     useContext(WindowContext);
@@ -87,6 +88,7 @@ const Nav: FC<NavProps> = ({ currentUrl }: NavProps) => {
    * Closes the sidebar while mouse leaves the document
    */
   useEffect(() => {
+    console.log('📺 clientLeave')
     if (clientLeave) setIsOpen(false);
   }, [clientLeave]);
 
@@ -102,44 +104,44 @@ const Nav: FC<NavProps> = ({ currentUrl }: NavProps) => {
      */
     const outOfBoundary = mouseY >= 90 || mouseY <= 10;
     if (outOfBoundary || isOpen) {
-      resetMenuButton();
+      // resetMenuButton();
+      return menuButtonDefaultState;
     } else {
       const isClosedAndNear = !isOpen && mouseX <= 20;
 
       /**
        * Detect mouse position
        */
-      setMouseInteraction({
+      return {
         iconTop: isClosedAndNear
           ? `${mouseY}%`
           : menuButtonDefaultState.iconTop,
         distance: isClosedAndNear,
         distanceCloser: mouseX <= 10,
-      });
+      };
     }
   };
 
-  useMemo(handleMouseInteraction, [
+  const mouseInteraction = useMemo(handleMouseInteraction, [
     clientX,
     clientY,
     clientHeight,
     clientWidth,
     isOpen,
     menuButtonDefaultState,
-    resetMenuButton,
   ]);
 
   return (
     <motion.nav
       id="nav"
       className={`
-    fixed flex flex-col justify-center items-center
-    left-0 top-0 bottom-0 h-full w-[250px] bg-red-400
-    -translate-x-[100%] transition duration-200 ease-linear
-    z-50
+        fixed flex flex-col justify-center items-center
+        left-0 top-0 bottom-0 h-full w-[250px] bg-red-400
+        -translate-x-[100%] transition duration-200 ease-linear
+        z-50
 
-    ${isOpen ? "translate-x-0 shadow-md" : ""}
-  `}
+        ${isOpen ? "translate-x-0 shadow-md" : ""}
+      `}
     >
       <NavContainer
         isOpen={isOpen}
@@ -149,8 +151,8 @@ const Nav: FC<NavProps> = ({ currentUrl }: NavProps) => {
 
       <ul
         className={`list-none scrollbar-none
-      flex flex-col w-full py-4 px-0 overflow-auto
-    `}
+          flex flex-col w-full py-4 px-0 overflow-auto
+        `}
       >
         {sections.map(
           (link: TypIconLink, index: number): ReactElement<HTMLLIElement> => (

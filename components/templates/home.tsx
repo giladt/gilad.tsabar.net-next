@@ -1,4 +1,4 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import MiniMe from "../molecules/mini-me";
 import { AnimatePresence, motion } from "framer-motion";
 import { TypIconPill } from "@/lib/types";

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
 import {
   motion,
   MotionStyle,
@@ -18,13 +18,25 @@ export type Ref = HTMLHeadingElement;
 const MiniMe = ({ className = "" }: MiniMeProps) => {
   const { clientWidth, clientHeight, clientX, clientY } =
     useContext(WindowContext);
-  const [positionRatio, setPositionRatio] = useState<{
-    horizontal: number;
-    vertical: number;
-  }>();
+
+  const ref = useRef<HTMLDivElement | null>(null);
+  const isInView = useInView(ref, { once: false });
 
   const x = useMotionValue(clientWidth);
   const y = useMotionValue(clientHeight);
+
+  const positionRatio = useMemo(() => {
+    if (ref === null || !isInView) return;
+    const currEl: HTMLElement | null = ref.current;
+
+    const posX = (currEl?.offsetLeft || 0) + 200;
+    const posY = (currEl?.offsetTop || 0) + 200;
+
+    return ({
+      horizontal: Math.round((posX / clientWidth) * 100) / 100,
+      vertical: Math.round((posY / clientHeight) * 100) / 100,
+    });
+  }, [ref, isInView, clientWidth, clientHeight]);
 
   useEffect(() => {
     x.set(clientX);
@@ -180,22 +192,6 @@ const MiniMe = ({ className = "" }: MiniMeProps) => {
     x: 0,
     y: 0,
   };
-
-  const ref = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(ref, { once: false });
-
-  useEffect(() => {
-    if (ref === null || !isInView) return;
-    const currEl: HTMLElement | null = ref.current;
-
-    const posX = (currEl?.offsetLeft || 0) + 200;
-    const posY = (currEl?.offsetTop || 0) + 200;
-
-    setPositionRatio({
-      horizontal: Math.round((posX / clientWidth) * 100) / 100,
-      vertical: Math.round((posY / clientHeight) * 100) / 100,
-    });
-  }, [ref, isInView, clientWidth, clientHeight]);
 
   return (
     <AnimatePresence initial={true} mode="wait">
