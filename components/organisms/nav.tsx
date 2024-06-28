@@ -48,17 +48,6 @@ const Nav: FC<NavProps> = ({ currentUrl }: NavProps) => {
   );
 
   const [isOpen, setIsOpen] = useState(false);
-  // const [mouseInteraction, setMouseInteraction] = useState(
-  //   menuButtonDefaultState
-  // );
-
-  /**
-   * Reset nav icon
-   */
-  // const resetMenuButton = useCallback((): void => {
-  //   mouseInteraction(menuButtonDefaultState);
-  // }, [menuButtonDefaultState]);
-
   useEffect(() => {
     console.log('📺 isOpen')
     /**
