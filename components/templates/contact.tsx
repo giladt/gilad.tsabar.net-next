@@ -24,7 +24,7 @@ const ContactMePage: FC<ContactMePageProps> = ({}) => {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify({ name, email, message }),
+      body: JSON.stringify({ email, name, message }),
     };
 
     setIsLoading(true);

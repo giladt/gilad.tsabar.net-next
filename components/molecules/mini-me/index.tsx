@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
+import React, { useContext, useEffect, useMemo, useRef } from "react";
 import {
   motion,
   MotionStyle,
@@ -26,11 +26,14 @@ const MiniMe = ({ className = "" }: MiniMeProps) => {
   const y = useMotionValue(clientHeight);
 
   const positionRatio = useMemo(() => {
-    if (ref === null || !isInView) return;
+    if (ref === null || !isInView) { 
+      return null; 
+    }
     const currEl: HTMLElement | null = ref.current;
 
-    const posX = (currEl?.offsetLeft || 0) + 200;
-    const posY = (currEl?.offsetTop || 0) + 200;
+    const fixedOffset = 200;
+    const posX = (currEl?.offsetLeft ?? 0) + fixedOffset;
+    const posY = (currEl?.offsetTop ?? 0) + fixedOffset;
 
     return ({
       horizontal: Math.round((posX / clientWidth) * 100) / 100,
@@ -41,7 +44,7 @@ const MiniMe = ({ className = "" }: MiniMeProps) => {
   useEffect(() => {
     x.set(clientX);
     y.set(clientY);
-  }, [clientX, clientY]);
+  }, [x, y, clientX, clientY]);
 
   const getPositionRatio = (
     range: [number, number],
@@ -49,8 +52,8 @@ const MiniMe = ({ className = "" }: MiniMeProps) => {
   ) => {
     const ratio =
       axis === "horizontal"
-        ? positionRatio?.horizontal || 0.5
-        : positionRatio?.vertical || 0.5;
+        ? positionRatio?.horizontal ?? 0.5
+        : positionRatio?.vertical ?? 0.5;
     const span = (range[1] - range[0]) * ratio;
     const midPoint = (range[0] + range[1]) / 2;
     return [
@@ -59,50 +62,61 @@ const MiniMe = ({ className = "" }: MiniMeProps) => {
     ];
   };
 
+  const pos: Record<string, {left: number, right: number}> = {
+    xEye: {left: -15, right: 15},
+    yEye: {left: -10, right: 10},
+    xEyebrow: {left: -5, right: 5},
+    yEyebrow: {left: -5, right: 5},
+    xPupil: {left: -20, right: 22},
+    yPupil: {left: -27, right: 7},
+    xFace: {left: 0, right: 15},
+    yFace: {left: -5, right: 5},
+    rMouth: {left: 0, right: -10},
+  }
   const xEye = useTransform(
     x,
     [0, clientWidth],
-    getPositionRatio([-15, 15], "horizontal")
+    getPositionRatio([pos.xEye.left, pos.xEye.right], "horizontal")
   );
   const yEye = useTransform(
     y,
     [0, clientHeight],
-    getPositionRatio([-10, 10], "vertical")
+    getPositionRatio([pos.yEye.left, pos.yEye.right], "vertical")
   );
   const xEyebrow = useTransform(
     x,
     [0, clientWidth],
-    getPositionRatio([-5, 5], "horizontal")
+    getPositionRatio([pos.xEyebrow.left, pos.xEyebrow.right], "horizontal")
   );
   const yEyebrow = useTransform(
     y,
     [0, clientHeight],
-    getPositionRatio([-5, 5], "vertical")
+    getPositionRatio([pos.yEyebrow.left, pos.yEyebrow.right], "vertical")
   );
   const xPupil = useTransform(
     x,
     [0, clientWidth],
-    getPositionRatio([-20, 22], "horizontal")
+    getPositionRatio([pos.xPupil.left,pos.xPupil.right], "horizontal")
   );
   const yPupil = useTransform(
     y,
     [0, clientHeight],
-    getPositionRatio([-27, 7], "vertical")
+    getPositionRatio([pos.yPupil.left,pos.yPupil.right], "vertical")
   );
   const xFace = useTransform(
     x,
     [0, clientWidth],
-    getPositionRatio([0, 15], "horizontal")
+    getPositionRatio([pos.xFace.left,pos.xFace.right], "horizontal")
   );
   const yFace = useTransform(
     y,
     [0, clientHeight],
-    getPositionRatio([-5, 5], "vertical")
+    getPositionRatio([pos.yFace.left,pos.yFace.right], "vertical")
   );
   const rMouth = useTransform(
     x,
     [0, clientWidth],
-    getPositionRatio([0, -10], "horizontal")
+    getPositionRatio([pos.rMouth.left,pos.rMouth.right], "horizontal")
   );
 
   const styleBody: MotionStyle = {

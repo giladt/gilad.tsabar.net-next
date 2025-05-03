@@ -1,16 +1,17 @@
 import Link from "next/link";
 import { Dispatch, SetStateAction, ReactNode } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 
-interface navLinkProps {
+interface NavLinkProps {
   href: string;
-  icon: any;
+  icon: IconProp;
   children: ReactNode;
   active: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const NavLink = ({ href, icon, children, active, setIsOpen }: navLinkProps) => {
+const NavLink = ({ href, icon, children, active, setIsOpen }: NavLinkProps) => {
   const closeNav = () => {
     setIsOpen(false);
   };

@@ -14,7 +14,7 @@ type PageTransitionProps = {
 type PageTransitionRef = React.ForwardedRef<HTMLDivElement>;
 
 function PageTransition(
-  { id, dir, children, ...rest }: PageTransitionProps,
+  { id, dir }: PageTransitionProps,
   ref: PageTransitionRef
 ) {
   const variants = {

@@ -13,16 +13,14 @@ import PageTransition from "@/components/organisms/page-transition";
 
 import "@/styles/globals.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-// Prevent fontawesome from adding its CSS since we did it manually above:
-import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 
 config.autoAddCss = false;
 
 export default function App({ Component, pageProps }: AppProps) {
   const currentUrl = usePathname();
-  const genKey = (id: string = "container") =>
-    uuidv5(currentUrl + "_" + id, uuidv5.URL);
+  const genKey = (id = "container") =>
+    uuidv5(currentUrl.concat("_", id), uuidv5.URL);
 
   return (
     <WindowContextProvider>

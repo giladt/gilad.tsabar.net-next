@@ -1,34 +1,34 @@
 import Head from "next/head";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 
-import AboutPage from "@/components/templates/about";
+import About from "@/components/templates/about";
 import { getFile } from "@/utils/files";
 import { TypExperience, TypIconPill } from "@/lib/types/index";
 
 interface PageProps {
-  skills: TypIconPill[];
-  experience: TypExperience[];
+  readonly skills: TypIconPill[];
+  readonly experience: TypExperience[];
 }
 
-export default function About({
+export default function AboutPage({
   skills,
   experience,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+}: Readonly<InferGetStaticPropsType<typeof getStaticProps>>) {
   return (
     <>
       <Head>
         <title>Gilad Tsabar | About me</title>
       </Head>
-      <AboutPage skills={skills} experience={experience} />
+      <About skills={skills} experience={experience} />
     </>
   );
 }
 
-export const getStaticProps = (async (context) => {
+export const getStaticProps = (async () => {
   const skillsData = await getFile("skills");
-  const skills: TypIconPill[] = JSON.parse(await skillsData);
+  const skills: TypIconPill[] = JSON.parse(skillsData);
   const experienceData = await getFile("experience");
-  const experience: TypExperience[] = JSON.parse(await experienceData);
+  const experience: TypExperience[] = JSON.parse(experienceData);
 
   return {
     props: {
