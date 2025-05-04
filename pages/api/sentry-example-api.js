@@ -1,6 +1,6 @@
 // Custom error class for Sentry testing
 class SentryExampleAPIError extends Error {
-  constructor(message: string | undefined) {
+  constructor(message) {
     super(message);
     this.name = "SentryExampleAPIError";
   }

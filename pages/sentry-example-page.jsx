@@ -3,7 +3,7 @@ import * as Sentry from "@sentry/nextjs";
 import { useState, useEffect } from "react";
 
 class SentryExampleFrontendError extends Error {
-  constructor(message: string | undefined) {
+  constructor(message) {
     super(message);
     this.name = "SentryExampleFrontendError";
   }
@@ -38,7 +38,7 @@ export default function Page() {
         </h1>
 
         <p className="description">
-          Click the button below, and view the sample error on the Sentry <a target="_blank" href="https://tsabar-net.sentry.io/issues/?project=4509261159661648">Issues Page</a>.
+          Click the button below, and view the sample error on the Sentry <a target="_blank" href="https://tsabar-net.sentry.io/issues/?project=4509261386743888">Issues Page</a>.
           For more details about setting up Sentry, <a target="_blank" href="https://docs.sentry.io/platforms/javascript/guides/nextjs/">read our docs</a>.
         </p>
 
