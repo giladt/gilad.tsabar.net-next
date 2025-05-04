@@ -2,14 +2,14 @@
 // The added config here will be used whenever a users loads a page in their browser.
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
-import * as Sentry from "@sentry/nextjs";
+import {init, replayIntegration,captureRouterTransitionStart} from "@sentry/nextjs";
 
-Sentry.init({
-  dsn: "https://b66d5170ad8644abecfdfc3a26f6d0ba@o4509261157367808.ingest.de.sentry.io/4509261159661648",
+init({
+  dsn: "https://940dfaad2a8d6eb230bb63df569ca6b4@o4509261157367808.ingest.de.sentry.io/4509261386743888",
 
   // Add optional integrations for additional features
   integrations: [
-    Sentry.replayIntegration(),
+    replayIntegration(),
   ],
 
   // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
@@ -27,4 +27,4 @@ Sentry.init({
   debug: false,
 });
 
-export const onRouterTransitionStart = Sentry.captureRouterTransitionStart;
+export const onRouterTransitionStart = captureRouterTransitionStart;

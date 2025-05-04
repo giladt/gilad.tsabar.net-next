@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   reactStrictMode: true,
+  turbopack: {
+    resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.json'],
+  }
 }
 
 module.exports = nextConfig
@@ -17,7 +21,7 @@ module.exports = withSentryConfig(
     // https://www.npmjs.com/package/@sentry/webpack-plugin#options
 
     org: "tsabar-net",
-    project: "javascript-nextjs",
+    project: "gilad-tsabar-net-next",
 
     // Only print logs for uploading source maps in CI
     silent: !process.env.CI,
