@@ -11,7 +11,7 @@ interface AboutProps {
   experience: TypExperience[];
 }
 
-const AboutPage: FC<AboutProps> = ({ skills, experience }) => {
+const About: FC<AboutProps> = ({ skills, experience }) => {
   return (
     <PageSection.Container label="about me" className="bg-stone-200 text-black">
       <PageSection.Title align="left">About Me</PageSection.Title>
@@ -55,4 +55,4 @@ const AboutPage: FC<AboutProps> = ({ skills, experience }) => {
     </PageSection.Container>
   );
 };
-export default AboutPage;
+export default About;

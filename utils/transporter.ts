@@ -1,17 +1,22 @@
 import nodemailer from "nodemailer";
 
-const user = process.env.NODEMAILER_TRANSPORTER_USER;
-const pass = process.env.NODEMAILER_TRANSPORTER_PASSWORD;
+const mailer = process.env.NODEMAILER_TRANSPORTER_USER ?? '';
+const user = process.env.NODEMAILER_TRANSPORTER_RECEIVER ?? '';
+const pass = process.env.NODEMAILER_TRANSPORTER_PASSWORD ?? '';
+const host = process.env.NODEMAILER_HOST ?? '';
 
 export const transporter = nodemailer.createTransport({
   service: "gmail",
+  port: 587,
+  secure: true,
   auth: {
-    user,
+    user: mailer,
     pass
-  }
+  },
+  host
 });
 
 export const mailOptions: nodemailer.SendMailOptions = {
-  from: user,
+  from: 'mailer@tsabar.net',
   to: user,
 }

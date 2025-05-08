@@ -2,7 +2,7 @@ import { FC } from "react";
 import MiniMe from "../molecules/mini-me";
 import { AnimatePresence, motion } from "framer-motion";
 import { TypIconPill } from "@/lib/types";
-import { Home } from "@/components/atoms/home-elements";
+import { HomeElements } from "@/components/atoms/home-elements";
 import { PageLink } from "@/components/atoms/page-link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -15,7 +15,7 @@ interface HomeProps {
   skills: TypIconPill[];
 }
 
-const HomePage: FC<HomeProps> = ({ skills }: HomeProps) => {
+const Home: FC<HomeProps> = ({ skills }: HomeProps) => {
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -46,7 +46,7 @@ const HomePage: FC<HomeProps> = ({ skills }: HomeProps) => {
       text-white overflow-hidden"
     >
       <AnimatePresence initial={true}>
-        <Home.container>
+        <HomeElements.Container>
           <motion.ul
             className="flex flex-col pt-8 max-w-xl gap-2 w-full"
             key="temp"
@@ -56,30 +56,30 @@ const HomePage: FC<HomeProps> = ({ skills }: HomeProps) => {
             layout
           >
             <motion.li variants={item}>
-              <Home.span>
+              <HomeElements.Span>
                 Hey there, <br />
-              </Home.span>
+              </HomeElements.Span>
             </motion.li>
             <motion.li variants={item}>
-              <Home.span className="text-3xl max-sm:text-xl">
-                My name is <Home.h1>Gilad Tsabar</Home.h1>,
-              </Home.span>
+              <HomeElements.Span className="text-3xl max-sm:text-xl">
+                My name is <HomeElements.H1>Gilad Tsabar</HomeElements.H1>,
+              </HomeElements.Span>
             </motion.li>
             <motion.li variants={item}>
-              <Home.span className="text-5xl max-sm:text-2xl">
-                I am a <Home.h2>Full Stack Web Developer</Home.h2> based in
+              <HomeElements.Span className="text-5xl max-sm:text-2xl">
+                I am a <HomeElements.H2>Full Stack Web Developer</HomeElements.H2> based in
                 Berlin, Germany.
-              </Home.span>
+              </HomeElements.Span>
             </motion.li>
             <motion.li variants={item}>
-              <Home.h3>
+              <HomeElements.H3>
                 Specialized in frontend development with over 4 years of
                 experience in building the web and working with technologies
-                like <Home.rotatePill items={skills} />
-              </Home.h3>
+                like <HomeElements.RotatePill items={skills} />
+              </HomeElements.H3>
             </motion.li>
             <motion.li variants={item}>
-              <Home.section>
+              <HomeElements.Section>
                 <PageLink href="/about" about="More about me">
                   <FontAwesomeIcon icon={faSignHanging} /> Been there, Done that
                 </PageLink>
@@ -89,13 +89,13 @@ const HomePage: FC<HomeProps> = ({ skills }: HomeProps) => {
                 <PageLink href="/contact" about="Contact Me">
                   <FontAwesomeIcon icon={faPeopleGroup} /> Drop me a message
                 </PageLink>
-              </Home.section>
+              </HomeElements.Section>
             </motion.li>
           </motion.ul>
-        </Home.container>
+        </HomeElements.Container>
       </AnimatePresence>
       <MiniMe className="max-sm:hidden max-xl:scale-75" />
     </motion.header>
   );
 };
-export default HomePage;
+export default Home;

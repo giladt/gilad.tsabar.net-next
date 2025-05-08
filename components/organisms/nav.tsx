@@ -5,7 +5,6 @@ import {
   useState,
   useContext,
   useMemo,
-  useCallback,
 } from "react";
 
 import {
@@ -19,10 +18,11 @@ import { motion } from "framer-motion";
 import { WindowContext } from "@/contexts/windowContext";
 import NavLink from "@/components/atoms/nav-link";
 import NavContainer from "@/components/molecules/nav-container";
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 interface TypIconLink {
   href: string;
-  icon: any;
+  icon: IconProp;
   text: string;
 }
 
@@ -49,21 +49,21 @@ const Nav: FC<NavProps> = ({ currentUrl }: NavProps) => {
 
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
-    console.log('📺 isOpen')
     /**
      * Closes the sidebar while clicking outside
      */
     function onClickOutside(event: globalThis.MouseEvent): void {
       event.stopPropagation();
-      if (!isOpen) return;
+      if (!isOpen) {
+        return void 0;
+      }
 
       if (!(event.target as Element).closest("#nav")) {
         setIsOpen(false);
-        // resetMenuButton();
       }
     }
 
-    if (!window.onmousedown) window.onmousedown = onClickOutside;
+    window.onmousedown ??= onClickOutside;
 
     return () => {
       window.onmousedown = null;
@@ -77,8 +77,9 @@ const Nav: FC<NavProps> = ({ currentUrl }: NavProps) => {
    * Closes the sidebar while mouse leaves the document
    */
   useEffect(() => {
-    console.log('📺 clientLeave')
-    if (clientLeave) setIsOpen(false);
+    if (clientLeave) {
+      setIsOpen(false);
+    }
   }, [clientLeave]);
 
   /**
@@ -87,16 +88,18 @@ const Nav: FC<NavProps> = ({ currentUrl }: NavProps) => {
   const handleMouseInteraction = () => {
     const mouseY = Math.round((clientY * 100) / clientHeight);
     const mouseX = Math.round((clientX * 100) / clientWidth);
+    const Y_OUT_OF_BOUNDARY_BOTTOM = 90;
+    const Y_OUT_OF_BOUNDARY_TOP = 10;
+    const X_OUT_OF_BOUNDARY_LEFT = 20;
 
     /**
      * Check mouse distance to nav
      */
-    const outOfBoundary = mouseY >= 90 || mouseY <= 10;
+    const outOfBoundary = mouseY >= Y_OUT_OF_BOUNDARY_BOTTOM || mouseY <= Y_OUT_OF_BOUNDARY_TOP;
     if (outOfBoundary || isOpen) {
-      // resetMenuButton();
       return menuButtonDefaultState;
     } else {
-      const isClosedAndNear = !isOpen && mouseX <= 20;
+      const isClosedAndNear = !isOpen && mouseX <= X_OUT_OF_BOUNDARY_LEFT;
 
       /**
        * Detect mouse position

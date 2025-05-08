@@ -55,7 +55,7 @@ const Project: FC<ProjectProps> = ({
       <div className="flex flex-col p-4 pt-0 gap-4 h-full">
         {children}
         <div className="flex flex-wrap gap-4 justify-center">
-          {stack.map((pill: any, idx: number) => {
+          {stack.map((pill) => {
             return (
               <Pill src={pill.src} size={22} key={uuidv4()}>
                 {pill.text}

@@ -2,7 +2,7 @@ import type { FC } from "react";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 
-import HomePage from "@/components/templates/home";
+import HomeElements from "@/components/templates/home";
 import { getFile } from "@/utils/files";
 import { TypIconPill } from "@/lib/types";
 
@@ -18,15 +18,15 @@ const Home: FC<PageProps> = ({
       <Head>
         <title>Gilad Tsabar | Full Stack Web Developer</title>
       </Head>
-      <HomePage skills={skills} />
+      <HomeElements skills={skills} />
     </>
   );
 };
 export default Home;
 
-export const getStaticProps = (async (context) => {
+export const getStaticProps = (async () => {
   const skillData = await getFile("skills");
-  const skills: TypIconPill[] = JSON.parse(await skillData);
+  const skills: TypIconPill[] = JSON.parse(skillData);
 
   return {
     props: {

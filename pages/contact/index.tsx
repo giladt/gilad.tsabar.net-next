@@ -3,7 +3,7 @@ import Head from "next/head";
 
 type PageProps = {};
 
-export default function Contact(props: PageProps) {
+export default function Contact() {
   return (
     <>
       <Head>
