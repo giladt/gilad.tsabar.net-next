@@ -1,6 +1,6 @@
 {
   "name": "gilad.tsabar.net-next",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -21,7 +21,7 @@
     "@vercel/speed-insights": "1.2.0",
     "eslint": "9.26.0",
     "eslint-config-next": "15.3.2",
-    "framer-motion": "12.10.4",
+    "framer-motion": "12.10.5",
     "next": "15.3.2",
     "nodemailer": "7.0.3",
     "react": "19.1.0",
