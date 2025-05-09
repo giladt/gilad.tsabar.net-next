@@ -1,5 +1,33 @@
 [
   {
+    "title": "Software Engineer",
+    "company": "B&O Service AG",
+    "begin": "08/2024",
+    "end": "Present",
+    "location": "Hybrid",
+    "about": "B&O Service AG specializes in the maintenance and modernization of residential properties, offering comprehensive technical services including repairs, renovations, and insurance damage restoration to support landlords and tenants efficiently",
+    "tasks": [
+      "Participate in national projects, designing and implementing custom software solutions such as Single Page Applications (SPAs).",
+      "Act as a key interface between Frontend Web Services and Backend developers, ensuring seamless collaboration.",
+      "Oversee the full lifecycle of solutions, from design and implementation to integration and production deployment.",
+      "Contribute actively to architecture and design discussions, bringing technical expertise to improve solutions.",
+      "Work independently in an agile Scrum team, developing new features, conducting testing, and resolving bugs."
+    ]
+  },
+  {
+    "title": "Freelance Software Engineer",
+    "company": "TSABAR.net",
+    "begin": "11/2022",
+    "end": "07/2024",
+    "location": "Remote",
+    "about": "TSABAR.net offers software engineering solutions for projects within the Javascript ecosystem.",
+    "tasks": [
+      "Design and implementation of web application solutions for various clients.",
+      "Maintained and optimized code for better performance and scalability.",
+      "Refactoring of outdated solutions into modern architectures."
+    ]
+  },
+  {
     "title": "Frontend Web(3) Engineer",
     "company": "Curve Labs - CL Cybernetix GmbH",
     "begin": "06/2021",
