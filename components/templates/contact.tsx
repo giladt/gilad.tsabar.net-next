@@ -91,7 +91,7 @@ const ContactMePage: FC<ContactMePageProps> = ({}) => {
           ...alternatively, you can also send me a message directly from this
           page:
         </div>
-        {!response && (
+        {!response && !isLoading && (
           <motion.form
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, x: 0 }}
@@ -147,47 +147,58 @@ const ContactMePage: FC<ContactMePageProps> = ({}) => {
             </button>
           </motion.form>
         )}
-        {!response && isLoading && (
-          <motion.div
-            initial={{ opacity: 0, x: 1000 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -1000 }}
-            className="w-full h-80 flex justify-center items-center rounded-lg bg-stone-400"
-          >
-            Sending Message...
-          </motion.div>
-        )}
-        {response && response.status === 200 && (
-          <motion.div
-            initial={{ opacity: 0, x: 1000 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -1000 }}
-            className="w-full h-80 flex flex-col justify-center gap-4 items-center rounded-lg shadow-lg shadow-inner bg-black/5"
-          >
-            Message sent successfully
-            <button
-              className="flex w-2/3 p-4 m-4 justify-center items-center rounded-lg bg-white/50 hover:bg-white/70 shadow-lg hover:shadow-sm"
-              onClick={() => {
-                setName("");
-                setEmail("");
-                setMessage("");
-                setResponse(undefined);
-              }}
-            >
-              Close
-            </button>
-          </motion.div>
-        )}
-        {response && response.status !== 200 && (
-          <motion.div
-            initial={{ opacity: 0, x: 1000 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -1000 }}
-            className="w-full h-80 flex justify-center gap-4 items-center rounded-lg bg-stone-400"
-          >
-            Error has ocurred. Try again
-          </motion.div>
-        )}
+        <div>
+          {!response && isLoading && (
+            <p className="
+            flex flex-col gap-4
+            w-full p-4 
+            rounded-lg h-72 mt-20 
+            items-center justify-center 
+            bg-stone-300 shadow-inner
+          ">Sending Message...</p>
+          )}
+          {response && response.status === 200 && (
+            <div className="
+            flex flex-col gap-4
+            w-full p-4 
+            rounded-lg h-72 mt-20 
+            items-center justify-center 
+            bg-stone-300 shadow-inner
+          ">
+              <p>Your message have been sent successfully!</p>
+              <button
+                className="flex w-2/3 p-4 m-4 justify-center items-center rounded-lg bg-white/50 hover:bg-white/70 shadow-lg hover:shadow-sm"
+                onClick={() => {
+                  setName("");
+                  setEmail("");
+                  setMessage("");
+                  setResponse(undefined);
+                }}
+              >
+                Close
+              </button>
+            </div>
+          )}
+          {response && response.status !== 200 && (
+            <div className="
+            flex flex-col gap-4
+            w-full p-4 
+            rounded-lg h-72 mt-20 
+            items-center justify-center 
+            bg-stone-300 shadow-inner
+          ">
+              <p>Error has occurred. Check your input, and try again.</p>
+              <button 
+                className="flex w-2/3 p-4 m-4 justify-center items-center rounded-lg bg-white/50 hover:bg-white/70 shadow-lg hover:shadow-sm"
+                onClick={()=>{
+                  setResponse(undefined);
+                }}
+              >
+                Back To Message
+              </button>
+            </div>
+          )}
+        </div>
       </PageSection.Paragraph>
     </PageSection.Container>
   );
