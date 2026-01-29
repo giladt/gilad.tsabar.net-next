@@ -129,7 +129,7 @@ const Nav: FC<NavProps> = ({ currentUrl }: NavProps) => {
       className={`
         fixed flex flex-col justify-center items-center
         left-0 top-0 bottom-0 h-full w-[250px] bg-red-400
-        -translate-x-[100%] transition duration-200 ease-linear
+        -translate-x-full transition duration-200 ease-linear
         z-50
 
         ${isOpen ? "translate-x-0 shadow-md" : ""}
@@ -150,7 +150,7 @@ const Nav: FC<NavProps> = ({ currentUrl }: NavProps) => {
           (link: TypIconLink, index: number): ReactElement<HTMLLIElement> => (
             <li
               key={`nav-link-${index.toString()}`}
-              className="w-full min-h-[3rem] mb-6 last:mb-0"
+              className="w-full min-h-12 mb-6 last:mb-0"
             >
               <NavLink
                 href={link.href}

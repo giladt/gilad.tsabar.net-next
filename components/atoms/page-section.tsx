@@ -24,7 +24,7 @@ const Container: FC<TypPageSection> = ({
     aria-labelledby={label}
     className={`${className}
     flex flex-col justify-center items-center
-    min-h-[100vh] py-6 pl-12 pr-4 md:px-20 lg:px-40
+    min-h-screen py-6 pl-12 pr-4 md:px-20 lg:px-40
   `}
   >
     {children}
@@ -34,7 +34,7 @@ const Container: FC<TypPageSection> = ({
 const Paragraph: FC<TypPageSectionParagraph> = ({ children }) => (
   <article
     className="flex flex-col gap-2
-    max-w-[62rem] mb-8 w-full"
+    max-w-248 mb-8 w-full"
   >
     {children}
   </article>
@@ -43,7 +43,7 @@ const Paragraph: FC<TypPageSectionParagraph> = ({ children }) => (
 const Tiles: FC<TypPageSectionTiles> = ({ children }) => (
   <motion.article
     className="flex gap-2 flex-wrap grow 
-      max-w-[62rem] mb-8 w-full justify-center
+      max-w-248 mb-8 w-full justify-center
     "
   >
     {children}
@@ -64,9 +64,9 @@ const Title: FC<TypPageSectionTitle> = ({
           align === "left"
             ? `hidden lg:visible text-8xl opacity-30
                 left-0 p-0 mx-0 my-auto fixed top-0 capitalize
-                h-[100vh] w-[11rem] font-bold [writing-mode:vertical-rl]
+                h-screen w-44 font-bold [writing-mode:vertical-rl]
                 rotate-180 align-middle justify-center items-center
-                lg:flex  drop-shadow-[-3px_-3px_6px_rgba(0,_0,_0,_0.75)] `
+                lg:flex  drop-shadow-[-3px_-3px_6px_rgba(0,0,0,0.75)] `
             : "text-2xl w-full"
         }
 

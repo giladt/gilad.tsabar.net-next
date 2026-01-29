@@ -50,7 +50,7 @@ function PageTransition(
     <motion.div
       key={id}
       ref={ref}
-      className={`absolute top-0 left-0 w-full h-[100vh] bg-stone-500 ${origin}`}
+      className={`absolute top-0 left-0 w-full h-screen bg-stone-500 ${origin}`}
       initial={variants[dir].start}
       animate={variants[dir].animate}
       exit={variants[dir].end}

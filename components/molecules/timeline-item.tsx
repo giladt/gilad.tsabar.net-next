@@ -28,38 +28,38 @@ const TimelineItem: FC<timelineItemProps> = ({
         ms-1
         me-1
         last:mb-0 
-        col-[2]
-        [grid-row:span_2]
+        col-2
+        row-[span_2]
         grid-rows-[min-content_min-content_min-content]
 
-        md:odd:col-[1] md
-        md:even:col-[3]
-        md:[&:nth-child(2)]:row-[2/4]
+        md:odd:col-1 md
+        md:even:col-3
+        md:nth-2:row-[2/4]
 
-        [&>.company]:odd:before:bg-gradient-to-l
+        odd:[&>.company]:before:bg-linear-to-l
         
-        [&>.company]:md:odd:rounded-e-3xl
-        [&>.company]:md:odd:rounded-s-none
+        md:odd:[&>.company]:rounded-e-3xl
+        md:odd:[&>.company]:rounded-s-none
 
-        [&>.company]:md:odd:before:[clip-path:polygon(0%_0%,100%_0%,100%_100%)]
-        [&>.company]:md:odd:before:left-0
+        md:odd:[&>.company]:before:[clip-path:polygon(0%_0%,100%_0%,100%_100%)]
+        md:odd:[&>.company]:before:left-0
 
-        [&>.company]:md:odd:after:translate-x-1/2
-        [&>.company]:md:odd:after:-translate-y-1/2
-        [&>.company]:md:odd:after:left-[calc(100%-0.625rem)]
+        md:odd:[&>.company]:after:translate-x-1/2
+        md:odd:[&>.company]:after:-translate-y-1/2
+        md:odd:[&>.company]:after:left-[calc(100%-0.625rem)]
         
-        [&>.title]:md:odd:ps-4
-        [&>.title]:md:even:pe-4
-        [&>.desc]:md:odd:ps-4
-        [&>.desc]:md:even:pe-4
+        md:odd:[&>.title]:ps-4
+        md:even:[&>.title]:pe-4
+        md:odd:[&>.desc]:ps-4
+        md:even:[&>.desc]:pe-4
 
-        [&>.date]:md:odd:ps-4
-        [&>.date]:md:even:pe-4
-        [&>.date]:md:even:text-end
-        [&>.date]:md:even:flex-row-reverse
+        md:odd:[&>.date]:ps-4
+        md:even:[&>.date]:pe-4
+        md:even:[&>.date]:text-end
+        md:even:[&>.date]:flex-row-reverse
 
-        [&>.about]:md:odd:ps-4
-        [&>.about]:md:even:pe-4
+        md:odd:[&>.about]:ps-4
+        md:even:[&>.about]:pe-4
 
       "
     >
@@ -87,7 +87,7 @@ const TimelineItem: FC<timelineItemProps> = ({
           before:w-6
           before:aspect-square
           before:bg-slate-500
-          before:bg-gradient-to-r 
+          before:bg-linear-to-r 
           before:from-[rgba(255,255,255,0.3)] before:to-transparent
           before:absolute
           before:top-full

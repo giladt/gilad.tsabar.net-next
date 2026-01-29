@@ -21,13 +21,13 @@ const VerticalTimeline: FC<VerticalTimelineProps> = ({ experience }) => {
               w-[min(60rem,100%)]
               m-auto
               before:content-[''] 
-              before:col-[1]
-              before:row-[1_/_span_20]
+              before:col-1
+              before:row-[1/span_20]
             before:bg-[rgb(25,25,25)]
               before:rounded-1
 
               md:grid-cols-[1fr_0.25rem_1fr]
-              md:before:col-[2]
+              md:before:col-2
             "
       >
         {experience.map((data) => {

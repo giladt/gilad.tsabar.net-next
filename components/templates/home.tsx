@@ -34,8 +34,8 @@ const Home: FC<HomeProps> = ({ skills }: HomeProps) => {
     <motion.header
       className="flex flex-row flex-wrap items-center justify-center 
       py-8 max-2xl:pl-12 max-2xl:pr-4
-      w-full min-h-[100vh] relative gap-4
-      bg-[#330867] bg-gradient-to-br 
+      w-full min-h-screen relative gap-4
+      bg-[#330867] bg-linear-to-br 
       from-[#330867] to-[#880110] from-50% to-100%
       before:content-[''] before:absolute
       before:top-0 before:left-0

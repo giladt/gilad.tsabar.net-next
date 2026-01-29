@@ -259,7 +259,7 @@ const MiniMe = ({ className = "" }: MiniMeProps) => {
                 fill="#ada5a1"
               />
               <path
-                className="shadow"
+                className="shadow-sm"
                 d="M 214.915 350.633 L 289.571 349.151 L 288.831 420.098 C 288.831 420.098 247.096 442.118 215.655 420.098 L 214.915 350.633 Z"
                 fill="#efceb9"
               />
