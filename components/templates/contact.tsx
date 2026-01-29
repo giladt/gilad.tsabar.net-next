@@ -167,7 +167,7 @@ const ContactMePage: FC<ContactMePageProps> = ({}) => {
           ">
               <p>Your message have been sent successfully!</p>
               <button
-                className="flex w-2/3 p-4 m-4 justify-center items-center rounded-lg bg-white/50 hover:bg-white/70 shadow-lg hover:shadow-sm"
+                className="flex w-2/3 p-4 m-4 justify-center items-center rounded-lg bg-white/50 hover:bg-white/70 shadow-lg hover:shadow-xs"
                 onClick={() => {
                   setName("");
                   setEmail("");
@@ -189,7 +189,7 @@ const ContactMePage: FC<ContactMePageProps> = ({}) => {
           ">
               <p>Error has occurred. Check your input, and try again.</p>
               <button 
-                className="flex w-2/3 p-4 m-4 justify-center items-center rounded-lg bg-white/50 hover:bg-white/70 shadow-lg hover:shadow-sm"
+                className="flex w-2/3 p-4 m-4 justify-center items-center rounded-lg bg-white/50 hover:bg-white/70 shadow-lg hover:shadow-xs"
                 onClick={()=>{
                   setResponse(undefined);
                 }}

@@ -23,7 +23,7 @@ const NavLink = ({ href, icon, children, active, setIsOpen }: NavLinkProps) => {
       className="
         flex flex-col justify-center items-center
         gap-2 whitespace-nowrap
-        w-full h-full text-[#8c0009] drop-shadow-sm 
+        w-full h-full text-[#8c0009] drop-shadow-xs 
         uppercase hover:text-white
       "
       style={active ? { color: "white" } : {}}
