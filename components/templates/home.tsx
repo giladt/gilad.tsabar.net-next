@@ -1,15 +1,15 @@
-import { FC } from "react";
-import MiniMe from "../molecules/mini-me";
-import { AnimatePresence, motion } from "framer-motion";
-import { TypIconPill } from "@/lib/types";
-import { HomeElements } from "@/components/atoms/home-elements";
-import { PageLink } from "@/components/atoms/page-link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FC } from 'react';
+import MiniMe from '../molecules/mini-me';
+import { AnimatePresence, motion } from 'framer-motion';
+import { TypIconPill } from '@/lib/types';
+import { HomeElements } from '@/components/atoms/home-elements';
+import { PageLink } from '@/components/atoms/page-link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPeopleGroup,
   faSignHanging,
   faToolbox,
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
 
 interface HomeProps {
   skills: TypIconPill[];
@@ -27,7 +27,7 @@ const Home: FC<HomeProps> = ({ skills }: HomeProps) => {
     },
   };
   const item = {
-    hidden: { opacity: 0, x: "20rem" },
+    hidden: { opacity: 0, x: '20rem' },
     show: { opacity: 1, x: 0 },
   };
   return (
@@ -67,13 +67,14 @@ const Home: FC<HomeProps> = ({ skills }: HomeProps) => {
             </motion.li>
             <motion.li variants={item}>
               <HomeElements.Span className="text-5xl max-sm:text-2xl">
-                I am a <HomeElements.H2>Full Stack Web Developer</HomeElements.H2> based in
-                Berlin, Germany.
+                I am a{' '}
+                <HomeElements.H2>Full Stack Web Developer</HomeElements.H2>{' '}
+                based in Berlin, Germany.
               </HomeElements.Span>
             </motion.li>
             <motion.li variants={item}>
               <HomeElements.H3>
-                Specialized in frontend development with over 4 years of
+                Specialized in frontend development with over 7 years of
                 experience in building the web and working with technologies
                 like <HomeElements.RotatePill items={skills} />
               </HomeElements.H3>
