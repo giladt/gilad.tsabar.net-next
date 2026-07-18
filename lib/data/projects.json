@@ -1,22 +1,37 @@
 [
   {
-    "id": "lePetitMoabit",
-    "release": "06/2023",
-    "liveUrl": "https://www.tsabar.net",
-    "repoUrl": "https://github.com/giladt/tsabar.next",
-    "image": "/projects/le-petit-moabit.png",
+    "id": "gutschriftenErstellung",
+    "release": "08/2026",
+    "image": "/projects/gutschrifterstellung.png",
     "stack": [
-      { "text": "Next JS", "src": "/icons/nextjs-50.png" },
-      { "text": "React JS", "src": "/icons/react-js-50.png" },
-      { "text": "TailwindCSS", "src": "/icons/tailwind-css-50.png" },
+      { "text": "Vue JS", "src": "/icons/vue-js-50.png" },
       { "text": "Typescript", "src": "/icons/typescript-50.png" },
-      { "text": "Marked", "src": "/icons/marked.svg" }
+      { "text": "Azure", "src": "/icons/azure-50.svg" },
+      { "text": "Vite", "src": "/icons/vite-50.png" },
+      { "text": "TailwindCSS", "src": "/icons/tailwind-css-50.png" },
+      { "text": "Pinia", "src": "/icons/pinia-50.svg" },
+      { "text": "Tanstack Query", "src": "/icons/tanstack-50.png" },
+      { "text": "Playwright", "src": "/icons/playwright-50.png" }
+    ]
+  },
+  {
+    "id": "partnerPortal",
+    "release": "01/2024",
+    "image": "/projects/partner-portal.png",
+    "stack": [
+      { "text": "Vue JS", "src": "/icons/vue-js-50.png" },
+      { "text": "Typescript", "src": "/icons/typescript-50.png" },
+      { "text": "Azure", "src": "/icons/azure-50.svg" },
+      { "text": "Vite", "src": "/icons/vite-50.png" },
+      { "text": "TailwindCSS", "src": "/icons/tailwind-css-50.png" },
+      { "text": "Pinia", "src": "/icons/pinia-50.svg" },
+      { "text": "Tanstack Query", "src": "/icons/tanstack-50.png" },
+      { "text": "Playwright", "src": "/icons/playwright-50.png" }
     ]
   },
   {
     "id": "primeDeals",
     "release": "06/2022",
-    "liveUrl": "https://deals.prime.xyz",
     "repoUrl": "https://github.com/PrimeDAO/prime-deals-dapp",
     "image": "/projects/prime-deals.png",
     "stack": [
@@ -30,13 +45,25 @@
   {
     "id": "primeLaunch",
     "release": "02/2022",
-    "liveUrl": "https://launch.prime.xyz",
     "repoUrl": "https://github.com/PrimeDAO/prime-launch-dapp",
     "image": "/projects/prime-launch.png",
     "stack": [
       { "text": "Aurelia JS", "src": "/icons/aurelia-50.png" },
       { "text": "Typescript", "src": "/icons/typescript-50.png" },
       { "text": "Ether JS", "src": "/icons/ethereum-50.png" }
+    ]
+  },
+  {
+    "id": "lePetitMoabit",
+    "release": "06/2023",
+    "repoUrl": "https://github.com/giladt/tsabar.next",
+    "image": "/projects/le-petit-moabit.png",
+    "stack": [
+      { "text": "Next JS", "src": "/icons/nextjs-50.png" },
+      { "text": "React JS", "src": "/icons/react-js-50.png" },
+      { "text": "TailwindCSS", "src": "/icons/tailwind-css-50.png" },
+      { "text": "Typescript", "src": "/icons/typescript-50.png" },
+      { "text": "Marked", "src": "/icons/marked.svg" }
     ]
   },
   {

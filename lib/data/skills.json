@@ -2,6 +2,7 @@
   { "text": "Typescript", "src": "/icons/typescript-50.png" },
   { "text": "Javascript", "src": "/icons/javascript-50.png" },
   { "text": "Vue JS", "src": "/icons/vue-js-50.png" },
+  { "text": "Pinia", "src": "/icons/pinia-50.svg" },
   { "text": "Playwright", "src": "/icons/playwright-50.png" },
   { "text": "Tanstack Query", "src": "/icons/tanstack-50.png" },
   { "text": "React JS", "src": "/icons/react-js-50.png" },
@@ -24,5 +25,6 @@
   { "text": "Jest", "src": "/icons/jest-50.png" },
   { "text": "Python", "src": "/icons/python-50.png" },
   { "text": "Postman", "src": "/icons/postman-50.png" },
-  { "text": "Docker", "src": "/icons/docker-50.png" }
+  { "text": "Docker", "src": "/icons/docker-50.png" },
+  { "text": "Azure", "src": "/icons/azure-50.svg" }
 ]

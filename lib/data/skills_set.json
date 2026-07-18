@@ -2,6 +2,7 @@
   "js": { "text": "Javascript", "src": "/icons/javascript-50.png" },
   "ts": { "text": "Typescript", "src": "/icons/typescript-50.png" },
   "react": { "text": "React JS", "src": "/icons/react-js-50.png" },
+  "pinia": { "text": "Pinia", "src": "/icons/pinia-50.svg" },
   "next": { "text": "Next JS", "src": "/icons/nextjs-50.png" },
   "html": { "text": "HTML5", "src": "/icons/html5-50.png" },
   "css": { "text": "CSS3", "src": "/icons/css3-50.png" },
@@ -25,6 +26,7 @@
   "python": { "text": "Python", "src": "/icons/python-50.png" },
   "postman": { "text": "Postman", "src": "/icons/postman-50.png" },
   "docker": { "text": "Docker", "src": "/icons/docker-50.png" },
+  "azure": { "text": "Azure", "src": "/icons/azure-50.svg" },
   "marked": { "text": "Marked", "src": "/icons/marked.svg" },
   "es6": { "text": "Vanilla ES6", "src": "/icons/es6.png" },
   "cypress": { "text": "CyPress", "src": "/icons/cypress.jpg" }

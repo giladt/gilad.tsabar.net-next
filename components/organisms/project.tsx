@@ -67,16 +67,22 @@ const Project: FC<ProjectProps> = ({
           })}
         </div>
       </div>
-      <p className="flex gap-2 mt-4 w-full p-4">
-        <PageLink light href={liveUrl} about={t('projects.demoAbout')}>
-          {t('projects.demo')}
-          <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-        </PageLink>
-        <PageLink light href={repoUrl} about={t('projects.repoAbout')}>
-          {t('projects.code')}
-          <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-        </PageLink>
-      </p>
+      {(liveUrl?.trim() || repoUrl?.trim()) && (
+        <p className="flex gap-2 mt-4 w-full p-4">
+          {liveUrl?.trim() && (
+            <PageLink light href={liveUrl} about={t('projects.demoAbout')}>
+              {t('projects.demo')}
+              <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+            </PageLink>
+          )}
+          {repoUrl?.trim() && (
+            <PageLink light href={repoUrl} about={t('projects.repoAbout')}>
+              {t('projects.code')}
+              <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+            </PageLink>
+          )}
+        </p>
+      )}
     </div>
   );
 };

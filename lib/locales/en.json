@@ -141,9 +141,13 @@
     "demoAbout": "A live demo of the project",
     "repoAbout": "Project repository",
     "items": {
-      "lePetitMoabit": {
-        "title": "Le-Petit-Moabit",
-        "description": "Side project: booking and inquiry app for family-owned properties."
+      "gutschriftenErstellung": {
+        "title": "Gutschriften Erstellung",
+        "description": "A project focused on automating the creation of credit notes."
+      },
+      "partnerPortal": {
+        "title": "Partner Portal",
+        "description": "A project aimed at providing a dedicated portal for partners to access resources and information."
       },
       "primeDeals": {
         "title": "Prime Deals",
@@ -152,6 +156,10 @@
       "primeLaunch": {
         "title": "Prime Launch",
         "description": "Part of PrimeDAO's open-source DeFi platform for decentralized seed rounds and DAO launches."
+      },
+      "lePetitMoabit": {
+        "title": "Le-Petit-Moabit",
+        "description": "Side project: booking and inquiry app for family-owned properties."
       },
       "tagSupplies": {
         "title": "Tag Supplies",
