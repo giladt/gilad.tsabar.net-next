@@ -3,7 +3,6 @@ import {
   type ReactElement,
   useEffect,
   useState,
-  useContext,
   useMemo,
 } from 'react';
 
@@ -15,7 +14,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 
-import { WindowContext } from '@/contexts/windowContext';
 import { useI18n } from '@/contexts/i18nContext';
 import NavLink from '@/components/atoms/nav-link';
 import NavContainer from '@/components/molecules/nav-container';
@@ -44,15 +42,6 @@ const Nav: FC<NavProps> = ({ currentUrl }: NavProps) => {
     [t],
   );
 
-  const menuButtonDefaultState = useMemo(
-    () => ({
-      distance: false,
-      distanceCloser: false,
-      iconTop: '50%',
-    }),
-    [],
-  );
-
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     /**
@@ -76,60 +65,6 @@ const Nav: FC<NavProps> = ({ currentUrl }: NavProps) => {
     };
   }, [isOpen]);
 
-  const { clientWidth, clientHeight, clientX, clientY, clientLeave } =
-    useContext(WindowContext);
-
-  /**
-   * Closes the sidebar while mouse leaves the document
-   */
-  useEffect(() => {
-    if (clientLeave) {
-      setIsOpen(false);
-    }
-  }, [clientLeave]);
-
-  /**
-   * Handle Mouse Interaction
-   */
-  const handleMouseInteraction = () => {
-    const mouseY = Math.round((clientY * 100) / clientHeight);
-    const mouseX = Math.round((clientX * 100) / clientWidth);
-    const Y_OUT_OF_BOUNDARY_BOTTOM = 90;
-    const Y_OUT_OF_BOUNDARY_TOP = 10;
-    const X_OUT_OF_BOUNDARY_LEFT = 20;
-
-    /**
-     * Check mouse distance to nav
-     */
-    const outOfBoundary =
-      mouseY >= Y_OUT_OF_BOUNDARY_BOTTOM || mouseY <= Y_OUT_OF_BOUNDARY_TOP;
-    if (outOfBoundary || isOpen) {
-      return menuButtonDefaultState;
-    } else {
-      const isClosedAndNear = !isOpen && mouseX <= X_OUT_OF_BOUNDARY_LEFT;
-
-      /**
-       * Detect mouse position
-       */
-      return {
-        iconTop: isClosedAndNear
-          ? `${mouseY}%`
-          : menuButtonDefaultState.iconTop,
-        distance: isClosedAndNear,
-        distanceCloser: mouseX <= 10,
-      };
-    }
-  };
-
-  const mouseInteraction = useMemo(handleMouseInteraction, [
-    clientX,
-    clientY,
-    clientHeight,
-    clientWidth,
-    isOpen,
-    menuButtonDefaultState,
-  ]);
-
   return (
     <motion.nav
       id="nav"
@@ -144,7 +79,6 @@ const Nav: FC<NavProps> = ({ currentUrl }: NavProps) => {
     >
       <NavContainer
         isOpen={isOpen}
-        mouseInteraction={mouseInteraction}
         handleNavToggle={() => setIsOpen(!isOpen)}
       />
 
