@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "description": "A full stack web developer based in Berlin, Germany. Specialized in frontend development with over 7 years of experience in building the web and working with technologies like React, Next.js, Node.js, GCP and more.",
+    "author": "Gilad Tsabar"
+  },
+  "pages": {
+    "homeTitle": "Gilad Tsabar | Full Stack Web Developer",
+    "aboutTitle": "Gilad Tsabar | About Me",
+    "projectsTitle": "Gilad Tsabar | Projects",
+    "contactTitle": "Gilad Tsabar | Contact Me"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Me",
+    "projects": "Projects",
+    "contact": "Contact Me",
+    "languageLabel": "Language",
+    "languageEnglish": "EN",
+    "languageGerman": "DE"
+  },
+  "home": {
+    "greeting": "Hey there,",
+    "namePrefix": "My name is",
+    "name": "Gilad Tsabar",
+    "headlinePrefix": "I am a",
+    "headline": "Full Stack Web Developer",
+    "headlineSuffix": "based in Berlin, Germany.",
+    "specialization": "Specialized in frontend development with over 7 years of experience in building the web and working with technologies like",
+    "aboutLinkLabel": "Been there, Done that",
+    "aboutLinkAbout": "More about me",
+    "projectsLinkLabel": "Me, Showing off",
+    "projectsLinkAbout": "Projects I've done",
+    "contactLinkLabel": "Drop me a message",
+    "contactLinkAbout": "Contact me"
+  },
+  "about": {
+    "sectionLabel": "about me",
+    "title": "About Me",
+    "whoAmI": "Who am I",
+    "introParagraph": "I am a passionate full stack web developer based in Berlin, Germany, who enjoys building software. I am a very positive and highly motivated person with over 7 years of experience in building beautiful websites and web applications with a focus on frontend technologies.",
+    "hobbiesParagraph": "Outside of work, I enjoy playing my guitar, watching films, and traveling the world.",
+    "portraitAlt": "Portrait of Gilad Tsabar",
+    "technologiesTitle": "Most used technologies",
+    "experienceTitle": "Work Experience",
+    "present": "Present",
+    "locations": {
+      "hybrid": "Hybrid",
+      "remote": "Remote",
+      "onsite": "On-Site"
+    },
+    "experience": {
+      "boServiceAg": {
+        "title": "Software Engineer",
+        "about": "B&O Service AG specializes in the maintenance and modernization of residential properties, offering comprehensive technical services including repairs, renovations, and insurance damage restoration to support landlords and tenants efficiently.",
+        "tasks": [
+          "Participate in national projects, designing and implementing custom software solutions such as single-page applications.",
+          "Act as a key interface between frontend web services and backend developers, ensuring seamless collaboration.",
+          "Oversee the full lifecycle of solutions, from design and implementation to integration and production deployment.",
+          "Contribute actively to architecture and design discussions, bringing technical expertise to improve solutions.",
+          "Work independently in an agile Scrum team, developing new features, conducting testing, and resolving bugs."
+        ]
+      },
+      "tsabarNet": {
+        "title": "Freelance Software Engineer",
+        "about": "TSABAR.net offers software engineering solutions for projects within the JavaScript ecosystem.",
+        "tasks": [
+          "Design and implement web application solutions for various clients.",
+          "Maintain and optimize code for better performance and scalability.",
+          "Refactor outdated solutions into modern architectures."
+        ]
+      },
+      "curveLabs": {
+        "title": "Frontend Web3 Engineer",
+        "about": "Curve Labs is an innovation network working with Web3 primitives to design, develop, and improve blockchain-native organizations beyond the sum of their parts.",
+        "tasks": [
+          "Participate in defining, designing, and developing two of PrimeDAO's main DeFi products: Prime Launch and Prime Deals.",
+          "Convert business logic into working features using TypeScript, Aurelia, Firebase, and Ethers.js.",
+          "Collaborate with members of the Web3 community to improve blockchain tools."
+        ]
+      },
+      "thisIsUndefined": {
+        "title": "Full Stack Web Developer",
+        "about": "",
+        "tasks": [
+          "Develop from scratch an e-commerce platform for the production and event industries to prepare and rent COVID-related equipment as a proof of concept using React, Gatsby, Firebase, and Prismic (CMS).",
+          "Transform UI designs into responsive and dynamic components using CSS Modules and JSX.",
+          "Create and maintain a staging demo: https://tagsupplies.netlify.app/."
+        ]
+      },
+      "gr8hub": {
+        "title": "Full Stack Web Developer",
+        "about": "",
+        "tasks": [
+          "Develop the minimum viable product using Next.js and React.",
+          "Transform UI designs into responsive web pages using HTML5, CSS3, and JavaScript.",
+          "Mentor and support the development team by providing guidance and constructive feedback.",
+          "Maintain and optimize code for better performance and scalability."
+        ]
+      },
+      "trendenceSoftwareDev": {
+        "title": "Software Developer",
+        "about": "Trendence is one of the leading consulting and market research companies for employer branding, personnel marketing, and recruiting.",
+        "tasks": [
+          "Design, build, and maintain smart automation tools using VBA, Python, and JavaScript.",
+          "Merge multiple processes into a single solution, reducing over 1500 development hours yearly."
+        ]
+      },
+      "trendenceDataViz": {
+        "title": "Data Visualization Manager",
+        "about": "",
+        "tasks": [
+          "Take responsibility for the data visualization of the company's products.",
+          "Program Excel macros in VBA to automate production processes.",
+          "Modernize and prepare reports for end clients.",
+          "Initiate optimizations of existing quality assurance processes, reducing the overall test cycle duration by 60%."
+        ]
+      },
+      "trendenceResearch": {
+        "title": "Research Analyst",
+        "about": "",
+        "tasks": ["Conduct data analysis for the core barometer studies."]
+      },
+      "misLtd": {
+        "title": "IT Manager",
+        "about": "M.I.S. (Marketing Information Systems) provides mystery shopping services and dedicated market research.",
+        "tasks": [
+          "Administer, maintain, and procure the company's technical equipment and peripherals.",
+          "Coordinate supplier contracts.",
+          "Develop and implement software solutions used by over 50 call center agents.",
+          "Take responsibility for product implementation.",
+          "Analyze and design database architectures."
+        ]
+      }
+    }
+  },
+  "projects": {
+    "sectionLabel": "projects",
+    "title": "Projects",
+    "demo": "Demo",
+    "code": "Code",
+    "demoAbout": "A live demo of the project",
+    "repoAbout": "Project repository",
+    "items": {
+      "lePetitMoabit": {
+        "title": "Le-Petit-Moabit",
+        "description": "Side project: booking and inquiry app for family-owned properties."
+      },
+      "primeDeals": {
+        "title": "Prime Deals",
+        "description": "Part of PrimeDAO's open-source platform for decentralized collaboration between DAOs."
+      },
+      "primeLaunch": {
+        "title": "Prime Launch",
+        "description": "Part of PrimeDAO's open-source DeFi platform for decentralized seed rounds and DAO launches."
+      },
+      "tagSupplies": {
+        "title": "Tag Supplies",
+        "description": "An app inspired by a classic game from the 80s."
+      },
+      "tetrisGame": {
+        "title": "Tetris Game",
+        "description": "A browser implementation inspired by the classic game from the 80s."
+      }
+    }
+  },
+  "contact": {
+    "sectionLabel": "contact",
+    "title": "Contact Me",
+    "findMeTitle": "Where To Find Me",
+    "lead": "Do you have an interesting project I can help with?",
+    "channels": "Feel free to reach out using one of the following channels:",
+    "alternative": "Alternatively, you can also send me a message directly from this page:",
+    "namePlaceholder": "Name",
+    "emailPlaceholder": "Email",
+    "messagePlaceholder": "Type your message here",
+    "send": "Send",
+    "sending": "Sending message...",
+    "success": "Your message has been sent successfully!",
+    "close": "Close",
+    "error": "An error has occurred. Check your input and try again.",
+    "backToMessage": "Back To Message"
+  }
+}

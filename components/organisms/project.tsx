@@ -1,12 +1,13 @@
-import { type FC, type ReactNode } from "react";
-import Image from "next/image";
-import { v4 as uuidv4 } from "uuid";
+import { type FC, type ReactNode } from 'react';
+import Image from 'next/image';
+import { v4 as uuidv4 } from 'uuid';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
-import Pill from "@/components/atoms/pill";
-import { PageLink } from "@/components/atoms/page-link";
+import Pill from '@/components/atoms/pill';
+import { useI18n } from '@/contexts/i18nContext';
+import { PageLink } from '@/components/atoms/page-link';
 
 interface ProjectProps {
   title: string;
@@ -29,6 +30,8 @@ const Project: FC<ProjectProps> = ({
   stack,
   children,
 }) => {
+  const { t } = useI18n();
+
   return (
     <div
       className="flex flex-col w-[calc(50%-1.25rem)] min-w-[300px]
@@ -65,12 +68,12 @@ const Project: FC<ProjectProps> = ({
         </div>
       </div>
       <p className="flex gap-2 mt-4 w-full p-4">
-        <PageLink light href={liveUrl} about="A live demo of the project">
-          Demo
+        <PageLink light href={liveUrl} about={t('projects.demoAbout')}>
+          {t('projects.demo')}
           <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
         </PageLink>
-        <PageLink light href={repoUrl} about="Project's repository">
-          Code
+        <PageLink light href={repoUrl} about={t('projects.repoAbout')}>
+          {t('projects.code')}
           <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
         </PageLink>
       </p>

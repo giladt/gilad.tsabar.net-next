@@ -1,10 +1,9 @@
 [
   {
-    "title": "Le-Petit-Moabit",
+    "id": "lePetitMoabit",
     "release": "06/2023",
     "liveUrl": "https://www.tsabar.net",
     "repoUrl": "https://github.com/giladt/tsabar.next",
-    "description": "Side Project: Booking-Inquiry app for family-owned properties.",
     "image": "/projects/le-petit-moabit.png",
     "stack": [
       { "text": "Next JS", "src": "/icons/nextjs-50.png" },
@@ -15,11 +14,10 @@
     ]
   },
   {
-    "title": "Prime Deals",
+    "id": "primeDeals",
     "release": "06/2022",
     "liveUrl": "https://deals.prime.xyz",
     "repoUrl": "https://github.com/PrimeDAO/prime-deals-dapp",
-    "description": "A part of PrimeDAO’s open-source platform: Decentralized collaboration between DAO’s.",
     "image": "/projects/prime-deals.png",
     "stack": [
       { "text": "Aurelia JS", "src": "/icons/aurelia-50.png" },
@@ -30,11 +28,10 @@
     ]
   },
   {
-    "title": "Prime Launch",
+    "id": "primeLaunch",
     "release": "02/2022",
     "liveUrl": "https://launch.prime.xyz",
     "repoUrl": "https://github.com/PrimeDAO/prime-launch-dapp",
-    "description": "A part of PrimeDAO’s open-source DeFi platform: Decentralized Seeds and launches of DAO’s.",
     "image": "/projects/prime-launch.png",
     "stack": [
       { "text": "Aurelia JS", "src": "/icons/aurelia-50.png" },
@@ -43,11 +40,10 @@
     ]
   },
   {
-    "title": "Tag Supplies",
+    "id": "tagSupplies",
     "release": "05/2021",
     "liveUrl": "https://tag-supplies.vercel.app/",
     "repoUrl": "https://github.com/giladt/tag-supplies",
-    "description": "Based on the classic game from the '80s.",
     "image": "/projects/tag-supplies.png",
     "stack": [
       { "text": "Vanilla ES6", "src": "/icons/es6.png" },
@@ -56,11 +52,10 @@
     ]
   },
   {
-    "title": "Tetris Game",
+    "id": "tetrisGame",
     "release": "08/2020",
     "liveUrl": "https://giladt.github.io/TetrisGame/",
     "repoUrl": "https://github.com/giladt/TetrisGame",
-    "description": "Based on the classic game from the '80s.",
     "image": "/projects/tetris-game.png",
     "stack": [
       { "text": "Vanilla ES6", "src": "/icons/es6.png" },

@@ -1,10 +1,11 @@
-import type { FC } from "react";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
-import Head from "next/head";
+import type { FC } from 'react';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import Head from 'next/head';
 
-import HomeElements from "@/components/templates/home";
-import { getFile } from "@/utils/files";
-import { TypIconPill } from "@/lib/types";
+import HomeElements from '@/components/templates/home';
+import { useI18n } from '@/contexts/i18nContext';
+import { getFile } from '@/utils/files';
+import { TypIconPill } from '@/lib/types';
 
 interface PageProps {
   skills: TypIconPill[];
@@ -13,10 +14,12 @@ interface PageProps {
 const Home: FC<PageProps> = ({
   skills,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { t } = useI18n();
+
   return (
     <>
       <Head>
-        <title>Gilad Tsabar | Full Stack Web Developer</title>
+        <title>{t('pages.homeTitle')}</title>
       </Head>
       <HomeElements skills={skills} />
     </>
@@ -25,7 +28,7 @@ const Home: FC<PageProps> = ({
 export default Home;
 
 export const getStaticProps = (async () => {
-  const skillData = await getFile("skills");
+  const skillData = await getFile('skills');
   const skills: TypIconPill[] = JSON.parse(skillData);
 
   return {

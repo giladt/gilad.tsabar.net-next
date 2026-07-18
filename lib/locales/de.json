@@ -1,0 +1,185 @@
+{
+  "meta": {
+    "description": "Ein Full-Stack-Webentwickler aus Berlin. Spezialisiert auf Frontend-Entwicklung mit mehr als 7 Jahren Erfahrung im Aufbau moderner Webanwendungen mit Technologien wie React, Next.js, Node.js, GCP und mehr.",
+    "author": "Gilad Tsabar"
+  },
+  "pages": {
+    "homeTitle": "Gilad Tsabar | Full-Stack-Webentwickler",
+    "aboutTitle": "Gilad Tsabar | Über mich",
+    "projectsTitle": "Gilad Tsabar | Projekte",
+    "contactTitle": "Gilad Tsabar | Kontakt"
+  },
+  "nav": {
+    "home": "Start",
+    "about": "Über mich",
+    "projects": "Projekte",
+    "contact": "Kontakt",
+    "languageLabel": "Sprache",
+    "languageEnglish": "EN",
+    "languageGerman": "DE"
+  },
+  "home": {
+    "greeting": "Hallo,",
+    "namePrefix": "ich heiße",
+    "name": "Gilad Tsabar",
+    "headlinePrefix": "Ich bin",
+    "headline": "Full-Stack-Webentwickler",
+    "headlineSuffix": "mit Sitz in Berlin.",
+    "specialization": "Ich bin auf Frontend-Entwicklung spezialisiert und habe über 7 Jahre Erfahrung in der Webentwicklung mit Technologien wie",
+    "aboutLinkLabel": "Erfahrung aus der Praxis",
+    "aboutLinkAbout": "Mehr über mich",
+    "projectsLinkLabel": "Einblick in meine Arbeit",
+    "projectsLinkAbout": "Meine Projekte",
+    "contactLinkLabel": "Schreib mir eine Nachricht",
+    "contactLinkAbout": "Kontakt aufnehmen"
+  },
+  "about": {
+    "sectionLabel": "ueber mich",
+    "title": "Über mich",
+    "whoAmI": "Wer bin ich",
+    "introParagraph": "Ich bin ein leidenschaftlicher Full-Stack-Webentwickler aus Berlin und entwickle mit Begeisterung Software. Ich bin sehr positiv eingestellt, hoch motiviert und habe über 7 Jahre Erfahrung im Aufbau moderner Websites und Webanwendungen mit Schwerpunkt auf Frontend-Technologien.",
+    "hobbiesParagraph": "Außerhalb der Arbeit spiele ich gerne Gitarre, schaue Filme und reise durch die Welt.",
+    "portraitAlt": "Porträt von Gilad Tsabar",
+    "technologiesTitle": "Am häufigsten genutzte Technologien",
+    "experienceTitle": "Berufserfahrung",
+    "present": "Heute",
+    "locations": {
+      "hybrid": "Hybrid",
+      "remote": "Remote",
+      "onsite": "Vor Ort"
+    },
+    "experience": {
+      "boServiceAg": {
+        "title": "Software Engineer",
+        "about": "Die B&O Service AG ist auf die Instandhaltung und Modernisierung von Wohnimmobilien spezialisiert und bietet umfassende technische Dienstleistungen wie Reparaturen, Sanierungen und die Beseitigung von Versicherungsschäden für Vermieter und Mieter.",
+        "tasks": [
+          "Mitarbeit in nationalen Projekten sowie Konzeption und Implementierung individueller Softwarelösungen wie Single-Page-Anwendungen.",
+          "Zentrale Schnittstellenfunktion zwischen Frontend-Webservices und Backend-Entwicklung zur Sicherstellung einer reibungslosen Zusammenarbeit.",
+          "Begleitung des gesamten Lösungslebenszyklus von Design und Implementierung bis Integration und Produktivsetzung.",
+          "Aktive Beteiligung an Architektur- und Designentscheidungen mit technischem Know-how zur Verbesserung der Lösungen.",
+          "Eigenständige Arbeit in einem agilen Scrum-Team mit Entwicklung neuer Features, Tests und Fehlerbehebungen."
+        ]
+      },
+      "tsabarNet": {
+        "title": "Freiberuflicher Software Engineer",
+        "about": "TSABAR.net bietet Software-Engineering-Lösungen für Projekte im JavaScript-Ökosystem.",
+        "tasks": [
+          "Konzeption und Umsetzung von Webanwendungslösungen für verschiedene Kunden.",
+          "Wartung und Optimierung von Code für bessere Performance und Skalierbarkeit.",
+          "Refactoring veralteter Lösungen in moderne Architekturen."
+        ]
+      },
+      "curveLabs": {
+        "title": "Frontend-Web3-Engineer",
+        "about": "Curve Labs ist ein Innovationsnetzwerk, das mit Web3-Primitiven arbeitet, um blockchain-native Organisationen zu entwerfen, zu entwickeln und zu verbessern.",
+        "tasks": [
+          "Mitarbeit bei Definition, Design und Entwicklung von zwei Hauptprodukten der PrimeDAO-DeFi-Plattform: Prime Launch und Prime Deals.",
+          "Umsetzung von Business-Logik in funktionierende Features mit TypeScript, Aurelia, Firebase und Ethers.js.",
+          "Zusammenarbeit mit Akteuren der Web3-Community zur Verbesserung von Blockchain-Tools."
+        ]
+      },
+      "thisIsUndefined": {
+        "title": "Full-Stack-Webentwickler",
+        "about": "",
+        "tasks": [
+          "Entwicklung einer E-Commerce-Plattform von Grund auf für die Produktions- und Eventbranche zur Vorbereitung und Vermietung von COVID-bezogenem Equipment als Proof of Concept mit React, Gatsby, Firebase und Prismic (CMS).",
+          "Umsetzung von UI-Designs in responsive und dynamische Komponenten mit CSS Modules und JSX.",
+          "Erstellung und Betreuung einer Staging-Demo: https://tagsupplies.netlify.app/."
+        ]
+      },
+      "gr8hub": {
+        "title": "Full-Stack-Webentwickler",
+        "about": "",
+        "tasks": [
+          "Entwicklung des Minimum Viable Product mit Next.js und React.",
+          "Umsetzung von UI-Designs in responsive Webseiten mit HTML5, CSS3 und JavaScript.",
+          "Mentoring und Unterstützung des Entwicklungsteams durch fachliche Anleitung und konstruktives Feedback.",
+          "Wartung und Optimierung von Code für bessere Performance und Skalierbarkeit."
+        ]
+      },
+      "trendenceSoftwareDev": {
+        "title": "Softwareentwickler",
+        "about": "Trendence ist eines der führenden Beratungs- und Marktforschungsunternehmen für Employer Branding, Personalmarketing und Recruiting.",
+        "tasks": [
+          "Konzeption, Entwicklung und Wartung intelligenter Automatisierungstools mit VBA, Python und JavaScript.",
+          "Zusammenführung mehrerer Prozesse in eine zentrale Lösung mit einer Einsparung von über 1500 Entwicklungsstunden pro Jahr."
+        ]
+      },
+      "trendenceDataViz": {
+        "title": "Manager Datenvisualisierung",
+        "about": "",
+        "tasks": [
+          "Verantwortung für die Datenvisualisierung der Unternehmensprodukte.",
+          "Programmierung von Excel-Makros in VBA zur Automatisierung von Produktionsprozessen.",
+          "Modernisierung und Aufbereitung von Berichten für Endkunden.",
+          "Initiierung von Optimierungen bestehender Qualitätssicherungsprozesse, wodurch die gesamte Testzyklusdauer um 60% reduziert wurde."
+        ]
+      },
+      "trendenceResearch": {
+        "title": "Research Analyst",
+        "about": "",
+        "tasks": [
+          "Durchführung von Datenanalysen für die zentralen Barometer-Studien."
+        ]
+      },
+      "misLtd": {
+        "title": "IT-Manager",
+        "about": "M.I.S. (Marketing Information Systems) bietet Mystery-Shopping-Dienstleistungen und spezialisierte Marktforschung.",
+        "tasks": [
+          "Administration, Wartung und Beschaffung technischer Ausstattung und Peripheriegeräte des Unternehmens.",
+          "Koordination von Lieferantenverträgen.",
+          "Entwicklung und Implementierung von Softwarelösungen für mehr als 50 Callcenter-Agenten.",
+          "Verantwortung für die Produktimplementierung.",
+          "Analyse und Design von Datenbankarchitekturen."
+        ]
+      }
+    }
+  },
+  "projects": {
+    "sectionLabel": "projekte",
+    "title": "Projekte",
+    "demo": "Demo",
+    "code": "Code",
+    "demoAbout": "Eine Live-Demo des Projekts",
+    "repoAbout": "Projekt-Repository",
+    "items": {
+      "lePetitMoabit": {
+        "title": "Le-Petit-Moabit",
+        "description": "Nebenprojekt: Buchungs- und Anfrage-App für familiengeführte Immobilien."
+      },
+      "primeDeals": {
+        "title": "Prime Deals",
+        "description": "Teil der Open-Source-Plattform von PrimeDAO für dezentrale Zusammenarbeit zwischen DAOs."
+      },
+      "primeLaunch": {
+        "title": "Prime Launch",
+        "description": "Teil der Open-Source-DeFi-Plattform von PrimeDAO für dezentrale Seed-Runden und DAO-Launches."
+      },
+      "tagSupplies": {
+        "title": "Tag Supplies",
+        "description": "Eine App, inspiriert von einem klassischen Spiel aus den 80ern."
+      },
+      "tetrisGame": {
+        "title": "Tetris Game",
+        "description": "Eine Browser-Umsetzung, inspiriert vom klassischen Spiel aus den 80ern."
+      }
+    }
+  },
+  "contact": {
+    "sectionLabel": "kontakt",
+    "title": "Kontakt",
+    "findMeTitle": "Wo du mich findest",
+    "lead": "Hast du ein spannendes Projekt, bei dem ich helfen kann?",
+    "channels": "Melde dich gerne über einen der folgenden Kanäle:",
+    "alternative": "Alternativ kannst du mir auch direkt über diese Seite schreiben:",
+    "namePlaceholder": "Name",
+    "emailPlaceholder": "E-Mail",
+    "messagePlaceholder": "Schreibe hier deine Nachricht",
+    "send": "Senden",
+    "sending": "Nachricht wird gesendet...",
+    "success": "Deine Nachricht wurde erfolgreich gesendet!",
+    "close": "Schließen",
+    "error": "Es ist ein Fehler aufgetreten. Bitte überprüfe deine Eingaben und versuche es erneut.",
+    "backToMessage": "Zurück zur Nachricht"
+  }
+}

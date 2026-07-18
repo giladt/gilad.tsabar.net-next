@@ -1,19 +1,12 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import en from '@/lib/locales/en.json';
 
 export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <meta
-          name="description"
-          content="
-          a FULLSTACK WEB DEVELOPER based in Berlin, Germany. 
-          Specialized in frontend development with over 7 years 
-          of experience in building the web and working with 
-          technologies like React, NextJS, NodeJS, GCP and more.
-        "
-        />
-        <meta name="author" content="Gilad Tsabar" />
+        <meta name="description" content={en.meta.description} />
+        <meta name="author" content={en.meta.author} />
       </Head>
       <body>
         <Main />

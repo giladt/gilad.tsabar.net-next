@@ -2,6 +2,7 @@ import { FC } from 'react';
 import MiniMe from '../molecules/mini-me';
 import { AnimatePresence, motion } from 'framer-motion';
 import { TypIconPill } from '@/lib/types';
+import { useI18n } from '@/contexts/i18nContext';
 import { HomeElements } from '@/components/atoms/home-elements';
 import { PageLink } from '@/components/atoms/page-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,6 +17,8 @@ interface HomeProps {
 }
 
 const Home: FC<HomeProps> = ({ skills }: HomeProps) => {
+  const { t } = useI18n();
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -57,38 +60,41 @@ const Home: FC<HomeProps> = ({ skills }: HomeProps) => {
           >
             <motion.li variants={item}>
               <HomeElements.Span>
-                Hey there, <br />
+                {t('home.greeting')} <br />
               </HomeElements.Span>
             </motion.li>
             <motion.li variants={item}>
               <HomeElements.Span className="text-3xl max-sm:text-xl">
-                My name is <HomeElements.H1>Gilad Tsabar</HomeElements.H1>,
+                {t('home.namePrefix')}{' '}
+                <HomeElements.H1>{t('home.name')}</HomeElements.H1>,
               </HomeElements.Span>
             </motion.li>
             <motion.li variants={item}>
               <HomeElements.Span className="text-5xl max-sm:text-2xl">
-                I am a{' '}
-                <HomeElements.H2>Full Stack Web Developer</HomeElements.H2>{' '}
-                based in Berlin, Germany.
+                {t('home.headlinePrefix')}{' '}
+                <HomeElements.H2>{t('home.headline')}</HomeElements.H2>{' '}
+                {t('home.headlineSuffix')}
               </HomeElements.Span>
             </motion.li>
             <motion.li variants={item}>
               <HomeElements.H3>
-                Specialized in frontend development with over 7 years of
-                experience in building the web and working with technologies
-                like <HomeElements.RotatePill items={skills} />
+                {t('home.specialization')}{' '}
+                <HomeElements.RotatePill items={skills} />
               </HomeElements.H3>
             </motion.li>
             <motion.li variants={item}>
               <HomeElements.Section>
-                <PageLink href="/about" about="More about me">
-                  <FontAwesomeIcon icon={faSignHanging} /> Been there, Done that
+                <PageLink href="/about" about={t('home.aboutLinkAbout')}>
+                  <FontAwesomeIcon icon={faSignHanging} />{' '}
+                  {t('home.aboutLinkLabel')}
                 </PageLink>
-                <PageLink href="/projects" about="Projects I've done">
-                  <FontAwesomeIcon icon={faToolbox} /> Me, Showing off
+                <PageLink href="/projects" about={t('home.projectsLinkAbout')}>
+                  <FontAwesomeIcon icon={faToolbox} />{' '}
+                  {t('home.projectsLinkLabel')}
                 </PageLink>
-                <PageLink href="/contact" about="Contact Me">
-                  <FontAwesomeIcon icon={faPeopleGroup} /> Drop me a message
+                <PageLink href="/contact" about={t('home.contactLinkAbout')}>
+                  <FontAwesomeIcon icon={faPeopleGroup} />{' '}
+                  {t('home.contactLinkLabel')}
                 </PageLink>
               </HomeElements.Section>
             </motion.li>

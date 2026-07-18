@@ -1,53 +1,59 @@
-import { useState, type FC, type FormEvent } from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { useState, type FC, type FormEvent } from 'react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
-import { PageSection } from "@/components/atoms/page-section";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { PageSection } from '@/components/atoms/page-section';
+import { useI18n } from '@/contexts/i18nContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 interface ContactMePageProps {}
 
 const ContactMePage: FC<ContactMePageProps> = ({}) => {
-  const [name, setName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
+  const { t } = useI18n();
+
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [response, setResponse] = useState<Response>();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const options = {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
       },
       body: JSON.stringify({ email, name, message }),
     };
 
     setIsLoading(true);
-    const res = await fetch("/api/v1/mail/send", options);
+    const res = await fetch('/api/v1/mail/send', options);
     setIsLoading(false);
     setResponse(res);
   };
 
   return (
-    <PageSection.Container label="contact" className="bg-stone-200 text-black">
+    <PageSection.Container
+      label={t('contact.sectionLabel')}
+      className="bg-stone-200 text-black"
+    >
       <PageSection.Paragraph>
-        <PageSection.Title align="left">Contact Me</PageSection.Title>
-        <PageSection.Title>Where To Find Me</PageSection.Title>
+        <PageSection.Title align="left">{t('contact.title')}</PageSection.Title>
+        <PageSection.Title>{t('contact.findMeTitle')}</PageSection.Title>
         <div className="flex justify-center">
-          Do you have an interesting project I can help with?
+          {t('contact.lead')}
           <br />
-          Feel free to reach out to me by using one of the following:
+          {t('contact.channels')}
         </div>
         <ul className="flex flex-row flex-wrap justify-evenly gap-4">
           <motion.li
             whileHover={{
               scale: 1.25,
-              transition: { ease: "circInOut", duration: 0.25 },
+              transition: { ease: 'circInOut', duration: 0.25 },
             }}
           >
             <Link
@@ -61,7 +67,7 @@ const ContactMePage: FC<ContactMePageProps> = ({}) => {
           <motion.li
             whileHover={{
               scale: 1.25,
-              transition: { ease: "circInOut", duration: 0.25 },
+              transition: { ease: 'circInOut', duration: 0.25 },
             }}
           >
             <Link
@@ -75,7 +81,7 @@ const ContactMePage: FC<ContactMePageProps> = ({}) => {
           <motion.li
             whileHover={{
               scale: 1.25,
-              transition: { ease: "circInOut", duration: 0.25 },
+              transition: { ease: 'circInOut', duration: 0.25 },
             }}
           >
             <Link
@@ -87,10 +93,7 @@ const ContactMePage: FC<ContactMePageProps> = ({}) => {
             </Link>
           </motion.li>
         </ul>
-        <div className="flex justify-center">
-          ...alternatively, you can also send me a message directly from this
-          page:
-        </div>
+        <div className="flex justify-center">{t('contact.alternative')}</div>
         {!response && !isLoading && (
           <motion.form
             initial={{ opacity: 0 }}
@@ -104,8 +107,8 @@ const ContactMePage: FC<ContactMePageProps> = ({}) => {
           >
             <input
               type="text"
-              title="Name"
-              placeholder="Name"
+              title={t('contact.namePlaceholder')}
+              placeholder={t('contact.namePlaceholder')}
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -116,8 +119,8 @@ const ContactMePage: FC<ContactMePageProps> = ({}) => {
             />
             <input
               type="email"
-              title="Email"
-              placeholder="Email"
+              title={t('contact.emailPlaceholder')}
+              placeholder={t('contact.emailPlaceholder')}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -128,8 +131,8 @@ const ContactMePage: FC<ContactMePageProps> = ({}) => {
             />
             <textarea
               rows={10}
-              placeholder="Type here your message"
-              title="Message"
+              placeholder={t('contact.messagePlaceholder')}
+              title={t('contact.messagePlaceholder')}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               required
@@ -143,58 +146,66 @@ const ContactMePage: FC<ContactMePageProps> = ({}) => {
               className="bg-slate-900 rounded-lg text-white 
               hover:bg-slate-500 h-10"
             >
-              Send
+              {t('contact.send')}
             </button>
           </motion.form>
         )}
         <div>
           {!response && isLoading && (
-            <p className="
+            <p
+              className="
             flex flex-col gap-4
             w-full p-4 
             rounded-lg h-72 mt-20 
             items-center justify-center 
             bg-stone-300 shadow-inner
-          ">Sending Message...</p>
+          "
+            >
+              {t('contact.sending')}
+            </p>
           )}
           {response && response.status === 200 && (
-            <div className="
+            <div
+              className="
             flex flex-col gap-4
             w-full p-4 
             rounded-lg h-72 mt-20 
             items-center justify-center 
             bg-stone-300 shadow-inner
-          ">
-              <p>Your message have been sent successfully!</p>
+          "
+            >
+              <p>{t('contact.success')}</p>
               <button
                 className="flex w-2/3 p-4 m-4 justify-center items-center rounded-lg bg-white/50 hover:bg-white/70 shadow-lg hover:shadow-xs"
                 onClick={() => {
-                  setName("");
-                  setEmail("");
-                  setMessage("");
+                  setName('');
+                  setEmail('');
+                  setMessage('');
                   setResponse(undefined);
                 }}
               >
-                Close
+                {t('contact.close')}
               </button>
             </div>
           )}
           {response && response.status !== 200 && (
-            <div className="
+            <div
+              className="
             flex flex-col gap-4
             w-full p-4 
             rounded-lg h-72 mt-20 
             items-center justify-center 
             bg-stone-300 shadow-inner
-          ">
-              <p>Error has occurred. Check your input, and try again.</p>
-              <button 
+          "
+            >
+              <p>{t('contact.error')}</p>
+              <button
                 className="flex w-2/3 p-4 m-4 justify-center items-center rounded-lg bg-white/50 hover:bg-white/70 shadow-lg hover:shadow-xs"
-                onClick={()=>{
+                onClick={() => {
                   setResponse(undefined);
                 }}
               >
-                Back To Message
+                {t('contact.backToMessage')}
               </button>
             </div>
           )}
